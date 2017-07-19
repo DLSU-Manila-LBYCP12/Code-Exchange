@@ -1,7 +1,11 @@
-# Code-Exchange
-Group name: Team EMI
+# Code-Exchange-Lee-Minguez-Rivera
+Group name: 
 
-Members: Lee, Rivera and Minguez
+Team EMI
+
+Members: 
+
+Lee, Minguez and Rivera 
 
 Project Title: 
 
