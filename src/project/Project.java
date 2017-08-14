@@ -63,7 +63,7 @@ public class Project extends Program {
             ProfilePic.setVisible(false);
             ProfilePic.setBackground(Color.white);
             
-            Requests = new JButton("View requests");
+            Requests = new JButton("View Requests");
             Requests.setFont(new Font("Calibri", Font.PLAIN, 24));
             Requests.setBackground(ClrBack);
             Requests.setForeground(ClrText);
@@ -103,7 +103,7 @@ public class Project extends Program {
             if(e.getActionCommand().equals("Profile")||e.getActionCommand().equals("  ")){
                 System.out.println("Displaying: Profile");
             } 
-            if(e.getActionCommand().equals("Requests")){
+            if(e.getActionCommand().equals("View Requests")){
                 System.out.println("Displaying: Requests");
             } 
             if(e.getActionCommand().equals("Settings")){
