@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 public class Project extends Program {
    
     public static int APPLICATION_WIDTH=1000;
-    public static int APPLICATIUON_HEIGHT=8000;
+    public static int APPLICATIUON_HEIGHT=1000;
     
     JLabel Label;
     JButton Home;
