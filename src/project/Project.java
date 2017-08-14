@@ -10,10 +10,11 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 
+
 public class Project extends Program {
    
-    public static int APPLICATION_WIDTH=1000;
-    public static int APPLICATIUON_HEIGHT=1000;
+    public static int APPLICATION_WIDTH=800;
+    public static int APPLICATIUON_HEIGHT=800;
     
     JLabel Label;
     JButton Home;
