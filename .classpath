@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="final_project/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/lyle/Downloads/School Stuff/Term 6/LBYCP12/Startup Files/cs106/Assignment5/acm.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
