@@ -30,6 +30,7 @@ public class CodeExchange extends Program {
     Color ClrText = Color.white;
     
     CodeExchangeLogInScreenCanvas canvas = new CodeExchangeLogInScreenCanvas();
+    CodeExchangeSignUpScreenCanvas signup = new CodeExchangeSignUpScreenCanvas();
     
         public static void main(String[] args) {
             new CodeExchange().start(args);
@@ -70,7 +71,7 @@ public class CodeExchange extends Program {
             Requests.setBackground(ClrBack);
             Requests.setForeground(ClrText);
             
-           Settings = new JButton("Settings");
+            Settings = new JButton("Settings");
             Settings.setFont(new Font("Calibri", Font.PLAIN, 24));
             Settings.setBackground(ClrBack);
             Settings.setForeground(ClrText);
@@ -116,11 +117,14 @@ public class CodeExchange extends Program {
             } 
             if(e.getActionCommand().equals("Sign up")){
                 System.out.println("Displaying: Signup screen");
+                remove(canvas);
+                add(signup, canvas.getX(),canvas.getY());
+                
             } 
         }
 
     private void loginScreen() {
-        Label = new JLabel("                 Code Exchange                        ");
+            Label = new JLabel("                 Code Exchange                        ");
             Label.setFont(new Font("Calibri", Font.PLAIN, 32));
             Label.setBackground(ClrBack);
             Label.setForeground(ClrText);

@@ -16,17 +16,16 @@ import java.awt.*;
  *
  * @author iwcnrlee1
  */
-public class Canvas extends JPanel{
+public class Canvas extends GraphicsProgram{
+    public static int APPLICATION_WIDTH=800;
+    public static int APPLICATIUON_HEIGHT=600;
     public Canvas() {
-        setLayout(null);
         Home();
     }
     
     public void Home(){
-        JLabel Text = new JLabel("Welcome to Code Exhange!");
-        Text.setFont(new Font("Arial", Font.BOLD, 24));
-        Text.setLocation(50,50);
-        add(Text);
+        GLabel LogIn= new GLabel("Log In:",400,400);
+        add(LogIn);
     }
     
     public void Login(){
