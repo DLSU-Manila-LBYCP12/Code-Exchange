@@ -14,3 +14,10 @@ java
 tiger
 0
 end
+A
+A
+A
+2
+A
+AA
+end
