@@ -8,7 +8,10 @@ import acmx.export.javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 public class CodeExchange extends Program {
@@ -37,6 +40,7 @@ public class CodeExchange extends Program {
         }
         
         public void run(){
+            
             loginScreen();
 //            display();
         }
@@ -115,12 +119,25 @@ public class CodeExchange extends Program {
             if(e.getActionCommand().equals("Log in")){
                 System.out.println("Displaying: Login screen");
             } 
-            if(e.getActionCommand().equals("Sign up")){
+            if (e.getActionCommand().equals("Sign up")) {
                 System.out.println("Displaying: Signup screen");
-                remove(canvas);
-                add(signup, canvas.getX(),canvas.getY());
-                
-            } 
+                String[] options = new String[]{"User", "Coder", "Cancel"};
+                int choice = JOptionPane.showOptionDialog(null, "Select the type of account you want to create.", "Register",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+                        null, options, options[0]);
+                switch (choice) {
+                    case 0:
+                        registrationUser();
+                        break;
+                    case 1:
+                        registrationCoder();
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
     private void loginScreen() {
@@ -149,6 +166,27 @@ public class CodeExchange extends Program {
             addActionListeners();
             canvas.showMessage("This is a test message.");
          }
+
+    private void registrationUser() {
+        JFrame reg = new JFrame("Register");
+        
+        reg.setVisible(true);
+        reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        RegistrationUser newForm = new RegistrationUser();
+        reg.setSize(500,450);
+        newForm.setVisible(true);
+        reg.add(newForm);
+    }
+    private void registrationCoder() {
+        JFrame reg = new JFrame("Register");
+        
+        reg.setVisible(true);
+        reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        RegistrationCoder newForm = new RegistrationCoder();
+        reg.setSize(500,450);
+        newForm.setVisible(true);
+        reg.add(newForm);
+    }
 }
 
         
