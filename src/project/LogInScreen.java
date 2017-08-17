@@ -5,17 +5,25 @@
  */
 package project;
 
+import java.io.IOException;
+
 /**
  *
  * @author Rivera
  */
 public class LogInScreen extends javax.swing.JPanel {
 
+    public int accountTypeIndex = 0;
+    public CodeExchangeCoderProfile coder;
+    public CodeExchangeUserProfile user;
+    public CodeExchangeDataBase database;
+
     /**
      * Creates new form NewJPanel
      */
-    public LogInScreen() {
+    public LogInScreen(CodeExchangeDataBase database) {
         initComponents();
+        this.database = database;
     }
 
     /**
@@ -159,10 +167,35 @@ public class LogInScreen extends javax.swing.JPanel {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+        findAccount();
+        if (accountTypeIndex == 0) {
+               if(coder.getPassword().equals(String.valueOf(passwordField.getPassword()))){
+                   System.out.println("Login success!");
+                   //calldisplay
+                   //remove window
+               }else{ 
+                   System.out.println("Login fail!");
+                   //calldisplay
+                   
+               }
+        } else {
+                if(user.getPassword().equals(String.valueOf(passwordField.getPassword()))){
+                   System.out.println("Login success!");
+                   //calldisplay
+                   //remove window
+               }else{ 
+                   System.out.println("Login fail!");
+                   //calldisplay
+                   
+               }
+        }
+
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void accountTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountTypeActionPerformed
         // TODO add your handling code here:
+        accountTypeIndex = accountType.getSelectedIndex();
+
     }//GEN-LAST:event_accountTypeActionPerformed
 
 
@@ -181,4 +214,24 @@ public class LogInScreen extends javax.swing.JPanel {
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton submitBtn;
     // End of variables declaration//GEN-END:variables
+
+    private void findAccount() {
+        String name = nameField.getText();
+        if (accountTypeIndex == 0) {
+            //coder
+            for (int i = 1; i <= database.coders.size(); i++) {
+                if (name.equals(database.coders.get(i).getName())) {
+                    coder = database.coders.get(i);
+                }
+            }
+        } else {
+            //user
+            for (int i = 1; i <= database.users.size(); i++) {
+                if (name.equals(database.users.get(i).getName())) {
+                    user = database.users.get(i);
+                }
+            }
+        }
+
+    }
 }

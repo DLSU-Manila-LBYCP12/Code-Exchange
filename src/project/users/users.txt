@@ -19,5 +19,6 @@ A
 A
 2
 A
-AA
+A
+0
 end

@@ -1,29 +1,29 @@
 package project;
 
-
+import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import project.LogInScreen;
-import project.RegistrationCoder;
-import project.RegistrationUser;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author iwcnrlee1
  */
 public class CodeExchangeDisplay extends javax.swing.JFrame {
 
-    Boolean Logged=false;
+    public CodeExchangeDataBase database;
+    public Boolean Logged  = false;
+
     /**
      * Creates new form NewJFrame
      */
-    public CodeExchangeDisplay() {
+    public CodeExchangeDisplay() throws IOException {
+        initDataBase();
         initComponents();
     }
 
@@ -178,35 +178,37 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         System.out.println("Displaying: Login screen");
         JFrame log = new JFrame("LogIn");
-        
+
         log.setVisible(true);
         log.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        LogInScreen newForm = new LogInScreen();
-        log.setSize(500,350);
+        LogInScreen newForm = new LogInScreen(database);
+        log.setSize(500, 350);
         newForm.setVisible(true);
         log.add(newForm);
         Logged=true;
         //UpdateScreen();
+        Logged = true;
+        UpdateScreen();
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void signupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtnActionPerformed
         System.out.println("Displaying: Signup screen");
-                String[] options = new String[]{"User", "Coder", "Cancel"};
-                int choice = JOptionPane.showOptionDialog(null, "Select the type of account you want to create.", "Register",
-                        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-                        null, options, options[0]);
-                switch (choice) {
-                    case 0:
-                        registrationUser();
-                        break;
-                    case 1:
-                        registrationCoder();
-                        break;
-                    case 2:
-                        break;
-                    default:
-                        break;
-                }
+        String[] options = new String[]{"User", "Coder", "Cancel"};
+        int choice = JOptionPane.showOptionDialog(null, "Select the type of account you want to create.", "Register",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+                null, options, options[0]);
+        switch (choice) {
+            case 0:
+                registrationUser();
+                break;
+            case 1:
+                registrationCoder();
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
     }//GEN-LAST:event_signupBtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -244,28 +246,33 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                try{
                 new CodeExchangeDisplay().setVisible(true);
+                }catch(Exception e){
+                    
+                }
             }
         });
     }
-    
+
     private void registrationUser() {
         JFrame reg = new JFrame("Register");
-        
+
         reg.setVisible(true);
         reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         RegistrationUser newForm = new RegistrationUser();
-        reg.setSize(500,500);
+        reg.setSize(500, 500);
         newForm.setVisible(true);
         reg.add(newForm);
     }
+
     private void registrationCoder() {
         JFrame reg = new JFrame("Register");
-        
+
         reg.setVisible(true);
         reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         RegistrationCoder newForm = new RegistrationCoder();
-        reg.setSize(500,450);
+        reg.setSize(500, 450);
         newForm.setVisible(true);
         reg.add(newForm);
     }
@@ -285,5 +292,10 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
 
     private void UpdateScreen() {
         removeAll();
+    }
+
+    private void initDataBase() throws IOException {
+        database = new CodeExchangeDataBase();
+        database.printAllProfiles();
     }
 }
