@@ -17,17 +17,21 @@ public class LogInScreen extends javax.swing.JPanel {
     public CodeExchangeCoderProfile coder;
     public CodeExchangeUserProfile user;
     public CodeExchangeDataBase database;
+    public CodeExchangeUserCanvas usercanvas = new CodeExchangeUserCanvas();
+   // public CodeExchangeCoderCanvas codercanvas;
 
     /**
      * Creates new form NewJPanel
      */
     public LogInScreen(CodeExchangeDataBase database) {
+       
+        //this.codercanvas = new CodeExchangeCoderCanvas();
         initComponents();
         this.database = database;
     }
 
     LogInScreen() {
-        
+       
     
     }
 
@@ -178,6 +182,7 @@ public class LogInScreen extends javax.swing.JPanel {
                    System.out.println("Login success!");
                    //calldisplay
                    //remove window
+                   //codercanvas.display(coder);
                }else{ 
                    System.out.println("Login fail!");
                    //calldisplay
@@ -188,6 +193,7 @@ public class LogInScreen extends javax.swing.JPanel {
                    System.out.println("Login success!");
                    //calldisplay
                    //remove window
+                   usercanvas.display(user);
                }else{ 
                    System.out.println("Login fail!");
                    //calldisplay

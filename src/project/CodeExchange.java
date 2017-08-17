@@ -35,10 +35,12 @@ public class CodeExchange extends Program {
     Color ClrBack = Color.blue;
     Color ClrText = Color.white;
     
-    Boolean checkProfile=false;
+    Boolean checkProfile = false;
     
     CodeExchangeLogInScreenCanvas canvas = new CodeExchangeLogInScreenCanvas();
     LogInScreen login = new LogInScreen();
+    
+    
     
         public static void main(String[] args) {
             new CodeExchange().start(args);
@@ -127,7 +129,7 @@ public class CodeExchange extends Program {
             } 
             if(e.getActionCommand().equals("Log in")){
                 System.out.println("Displaying: Login screen");
-                login.
+                //login.
             } 
             
             if (e.getActionCommand().equals("Sign up")) {

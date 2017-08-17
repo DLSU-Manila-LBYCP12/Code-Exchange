@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import acm.graphics.*;
 import acm.program.ConsoleProgram;
 import acm.program.Program;
+import project.CodeExchangeCoderProfile;
 
 /**
  *
@@ -17,21 +18,16 @@ import acm.program.Program;
  */
 public class CodeExchangeCoderCanvas extends ConsoleProgram{
 	
-	GCanvas canvas;
-	JButton checkClientRequests;
-	JButton checkPendingRequests;
+    
+        
     public CodeExchangeCoderCanvas()
     {
-    	//Test initialization for canvas of coders
-    	/*setSize(600,480);
-    	canvas = new GCanvas();
-    	checkClientRequests = new JButton("Check Client Requests");
-    	add(checkClientRequests,NORTH + getWidth()/2);
-    	checkPendingRequests = new JButton("Check Pending Requests");
-    	add(checkPendingRequests, NORTH + getWidth()/2 + 50);**/
+    	
     }
-    public static void main(String[] args)
+    
+    public void display(CodeExchangeCoderProfile profile)
     {
-    	new CodeExchangeCoderCanvas().start(args);
+        //ano ididisplay ko
+        System.out.println(profile.getName());
     }
 }

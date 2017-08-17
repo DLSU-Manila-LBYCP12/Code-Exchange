@@ -6,3 +6,11 @@ java c javascript
 maverick
 0
 end
+Elijah Minguez
+Lyle
+elijah_minguez@gmail.com
+09052701561
+Java
+123456
+0
+end
