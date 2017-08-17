@@ -1,14 +1,16 @@
-mave
-mave INC
- maverick@gmail.com
-123123
-tagalog lol 
 maverick
+EMI
+maverick.rivera3@gmail.com
+09277256977
+java
+mavemave
+0
 end
-cabats 
-lul
- cabatumail
-12123123123
-all
-cobalt
+inicca lee
+heran
+heran@gmail.com
+123457
+java
+tiger
+0
 end

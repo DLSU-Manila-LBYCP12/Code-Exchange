@@ -10,13 +10,33 @@ package project;
  * @author Rivera
  */
 public class CodeExchangeUserProfile {
-
+    
     private String name;
     private String company_name;
     private String email;
     private String number;
     private String language;
     private String password;
+    private int spendings;
+
+    CodeExchangeUserProfile(String name) {
+        setName(name);
+    }
+    /**
+     * @return the spendings
+     */
+    public int getSpendings() {
+        return spendings;
+    }
+
+    /**
+     * @param spendings the spendings to set
+     */
+    public void setSpendings(int spendings) {
+        this.spendings = spendings;
+    }
+
+    
 
     /**
      * @return the name

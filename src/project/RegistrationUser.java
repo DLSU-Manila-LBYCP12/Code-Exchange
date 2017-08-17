@@ -237,7 +237,7 @@ public class RegistrationUser extends javax.swing.JPanel {
             int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to register using the information you provided?", "Confirm", JOptionPane.YES_NO_OPTION);
             if (confirm == 0) {
                 System.out.println("Profile submitted!");
-                 summary = nameField.getText() +nl + companyNameField.getText() +nl  + emailField.getText() +nl  + numberField.getText() +nl  + languageField.getText() +nl  + password +nl+"end";
+                 summary = nameField.getText() +nl + companyNameField.getText() +nl  + emailField.getText() +nl  + numberField.getText() +nl  + languageField.getText() +nl  + password +nl+"0"+nl+"end";
                  String path = System.getProperty("user.dir") + "\\src\\project\\users\\users.txt";
                  FileWriter writer;
                 try {

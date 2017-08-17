@@ -10,12 +10,15 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
 public class CodeExchange extends Program {
-   
+    public CodeExchangeDataBase database;
     public static int APPLICATION_WIDTH=800;
     public static int APPLICATIUON_HEIGHT=800;
     
@@ -40,7 +43,11 @@ public class CodeExchange extends Program {
         }
         
         public void run(){
-            
+        try {
+            initDataBase();
+        } catch (IOException ex) {
+            Logger.getLogger(CodeExchange.class.getName()).log(Level.SEVERE, null, ex);
+        }
             loginScreen();
 //            display();
         }
@@ -186,6 +193,11 @@ public class CodeExchange extends Program {
         reg.setSize(500,450);
         newForm.setVisible(true);
         reg.add(newForm);
+    }
+
+    private void initDataBase() throws IOException {
+        database = new CodeExchangeDataBase();
+        database.printAllProfiles();
     }
 }
 

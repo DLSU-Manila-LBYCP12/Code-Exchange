@@ -5,6 +5,8 @@
  */
 package project;
 
+import ph.edu.dlsu.EMI.mylinkedlist.MyLinkedList;
+
 /**
  *
  * @author Rivera
@@ -15,9 +17,14 @@ public class CodeExchangeCoderProfile {
     private String alias;
     private String email;
     private String number;
-    private String[] languages;
+    private MyLinkedList<String> languages;
     private String password;
+    private int earnings;
 
+    public CodeExchangeCoderProfile(String name) {
+        this.setName(name);
+        }
+    
     /**
      * @return the name
      */
@@ -77,14 +84,14 @@ public class CodeExchangeCoderProfile {
     /**
      * @return the languages
      */
-    public String[] getLanguages() {
+    public MyLinkedList<String> getLanguages() {
         return languages;
     }
 
     /**
      * @param languages the languages to set
      */
-    public void setLanguages(String[] languages) {
+    public void setLanguages(MyLinkedList<String> languages) {
         this.languages = languages;
     }
 
@@ -100,6 +107,20 @@ public class CodeExchangeCoderProfile {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * @return the earnings
+     */
+    public int getEarnings() {
+        return earnings;
+    }
+
+    /**
+     * @param earnings the earnings to set
+     */
+    public void setEarnings(int earnings) {
+        this.earnings = earnings;
     }
 
 }
