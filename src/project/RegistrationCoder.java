@@ -5,12 +5,23 @@
  */
 package project;
 
+import java.awt.Window;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Rivera
  */
 public class RegistrationCoder extends javax.swing.JPanel {
-
+    String newline = System.lineSeparator();
+    String nl = newline;
+    String summary="";
     /**
      * Creates new form NewJPanel
      */
@@ -42,8 +53,8 @@ public class RegistrationCoder extends javax.swing.JPanel {
         numberField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
         confirmPassField = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        submit = new javax.swing.JButton();
+        cancel = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         languagesField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -67,19 +78,17 @@ public class RegistrationCoder extends javax.swing.JPanel {
             }
         });
 
-        emailField.setText(" ");
-
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        submit.setText("Submit");
+        submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                submitActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancel");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cancel.setText("Cancel");
+        cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelActionPerformed(evt);
             }
         });
 
@@ -118,9 +127,9 @@ public class RegistrationCoder extends javax.swing.JPanel {
                 .addGap(30, 30, 30))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(136, 136, 136)
-                .addComponent(jButton1)
+                .addComponent(submit)
                 .addGap(35, 35, 35)
-                .addComponent(jButton2)
+                .addComponent(cancel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -157,8 +166,8 @@ public class RegistrationCoder extends javax.swing.JPanel {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(submit)
+                    .addComponent(cancel))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -198,14 +207,51 @@ public class RegistrationCoder extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+                                           
         // TODO add your handling code here:
+        String password = String.valueOf(passwordField.getPassword());
+        if (password.equals(String.valueOf(confirmPassField.getPassword()))) {
+            System.out.println("Passwords match");
+            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to register using the information you provided?", "Confirm", JOptionPane.YES_NO_OPTION);
+            if (confirm == 0) {
+                System.out.println("Profile submitted!");
+                 summary = nameField.getText() +nl + companyNameField.getText() +nl  + emailField.getText() +nl  + numberField.getText() +nl  + languagesField.getText() +nl  + password +nl+"end";
+                 String path = System.getProperty("user.dir") + "\\src\\project\\coders\\coders.txt";
+                 FileWriter writer;
+                try {
+                    writer = new FileWriter(path, true);
+                    PrintWriter print = new PrintWriter(writer);
+                    print.println(summary);
+                    print.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(RegistrationUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+                Window dialog = SwingUtilities.windowForComponent(cancel);
+                dialog.dispose();
+            } else if (confirm == 1) {
+
+                System.out.println("Submission cancelled!");
+            }
+        } else {
+            System.out.println("Passwords do not match");
+            JOptionPane.showMessageDialog(null, "The passwords do not match. Please make sure that the passwords match");
+        }
+
+        //        Window dialog = SwingUtilities.windowForComponent(cancel);
+        //        dialog.dispose();
+
+    }//GEN-LAST:event_submitActionPerformed
+
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        // TODO add your handling code here:
+        Window dialog = SwingUtilities.windowForComponent(cancel);
+        dialog.dispose();
+    }//GEN-LAST:event_cancelActionPerformed
 
     private void companyNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyNameFieldActionPerformed
         // TODO add your handling code here:
@@ -213,11 +259,10 @@ public class RegistrationCoder extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancel;
     private javax.swing.JTextField companyNameField;
     private javax.swing.JPasswordField confirmPassField;
     private javax.swing.JTextField emailField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -234,5 +279,6 @@ public class RegistrationCoder extends javax.swing.JPanel {
     private javax.swing.JTextField nameField;
     private javax.swing.JTextField numberField;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables
 }

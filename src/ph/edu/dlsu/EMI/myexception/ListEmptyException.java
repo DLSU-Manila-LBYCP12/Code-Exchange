@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project;
+package ph.edu.dlsu.EMI.myexception;
 
 /**
  *
- * @author Rivera
+ * @author Administrator
  */
-public class CodeExchangeDataBase {
-    public CodeExchangeDataBase(){
-        
-    }
-}
+class ListEmptyException extends RuntimeException{
+    public ListEmptyException(String s){ 
+        super(s);
+    }//end constructor
+} 
