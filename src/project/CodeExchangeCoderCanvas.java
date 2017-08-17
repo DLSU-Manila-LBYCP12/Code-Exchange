@@ -23,12 +23,12 @@ public class CodeExchangeCoderCanvas extends ConsoleProgram{
     public CodeExchangeCoderCanvas()
     {
     	//Test initialization for canvas of coders
-    	setSize(600,480);
+    	/*setSize(600,480);
     	canvas = new GCanvas();
     	checkClientRequests = new JButton("Check Client Requests");
     	add(checkClientRequests,NORTH + getWidth()/2);
     	checkPendingRequests = new JButton("Check Pending Requests");
-    	add(checkPendingRequests, NORTH + getWidth()/2 + 50);
+    	add(checkPendingRequests, NORTH + getWidth()/2 + 50);**/
     }
     public static void main(String[] args)
     {

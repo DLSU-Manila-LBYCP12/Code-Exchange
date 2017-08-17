@@ -38,6 +38,7 @@ public class CodeExchange extends Program {
     Boolean checkProfile=false;
     
     CodeExchangeLogInScreenCanvas canvas = new CodeExchangeLogInScreenCanvas();
+    LogInScreen login = new LogInScreen();
     
         public static void main(String[] args) {
             new CodeExchange().start(args);
@@ -126,6 +127,7 @@ public class CodeExchange extends Program {
             } 
             if(e.getActionCommand().equals("Log in")){
                 System.out.println("Displaying: Login screen");
+                login.
             } 
             
             if (e.getActionCommand().equals("Sign up")) {
