@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -25,21 +26,22 @@ public class LogInScreen extends javax.swing.JPanel {
     public CodeExchangeCoderProfile coder;
     public CodeExchangeUserProfile user;
     public CodeExchangeDataBase database;
-   // public CodeExchangeUserCanvas usercanvas = new CodeExchangeUserCanvas();
-    public CodeExchangeUserScreen userscreen = new CodeExchangeUserScreen();
-    public CodeExchangeCoderScreen coderscreen = new CodeExchangeCoderScreen();
+    public CodeExchangeUserScreen userscreen;
+    public CodeExchangeCoderScreen coderscreen;
     public CodeExchangeDisplay display;
-    
+
     CodeExchangeDisplay maindisplay;
-    java.awt.Window dialog ;
-   // public CodeExchangeCoderCanvas codercanvas;
+    java.awt.Window dialog;
+    // public CodeExchangeCoderCanvas codercanvas;
 
     /**
      * Creates new form NewJPanel
+     *
      * @param database
+     * @param dialog
      */
-    public LogInScreen(CodeExchangeDataBase database, java.awt.Window dialog ) {
-       
+    public LogInScreen(CodeExchangeDataBase database, java.awt.Window dialog) {
+
         //this.codercanvas = new CodeExchangeCoderCanvas();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         int w = this.getSize().width;
@@ -53,11 +55,8 @@ public class LogInScreen extends javax.swing.JPanel {
     }
 
     LogInScreen() {
-       
-    
-    }
 
-   
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -194,7 +193,7 @@ public class LogInScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-        
+
         java.awt.Window dialog = SwingUtilities.windowForComponent(cancel);
         dialog.dispose();
     }//GEN-LAST:event_cancelActionPerformed
@@ -202,40 +201,58 @@ public class LogInScreen extends javax.swing.JPanel {
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
         findAccount();
+        try {
         if (accountTypeIndex == 0) {
-               if(coder.getPassword().equals(String.valueOf(passwordField.getPassword()))){
-                   closeMainWindow();
-                   System.out.println("Login success!");
-                   //calldisplay
-                   //remove window
-                   //codercanvas.display(coder);
-                   coderscreen.setVisible(true);
-                   
-               }else{ 
-                   System.out.println("Login fail!");
-                   //calldisplay
-                   
-               }
-        } else {
-                if(user.getPassword().equals(String.valueOf(passwordField.getPassword()))){
-                    closeMainWindow();
-                   System.out.println("Login success!");
-                   userscreen.setVisible(true);
-                   ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
-                   
-                   //usercanvas.display(user);
-               }else{ 
-                   System.out.println("Login fail!");
-                   //calldisplay
-                   
-               }
-        }
+            if (coder.getPassword().equals(String.valueOf(passwordField.getPassword()))) {
+                closeMainWindow();
+                System.out.println("Login success! User");
+                //calldisplay
+                //remove window
+                //codercanvas.display(coder);
 
+                coderscreen = new CodeExchangeCoderScreen(coder.getName());
+                coderscreen.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
+            } else {
+                System.out.println("Login fail! Coder");
+                //calldisplay
+                JOptionPane.showMessageDialog(null, "Please check the username and password carefully.");
+
+            }
+        } else {
+            if (user.getPassword().equals(String.valueOf(passwordField.getPassword()))) {
+                closeMainWindow();
+                System.out.println("Login success! User");
+
+                userscreen = new CodeExchangeUserScreen(user.getName());
+                userscreen.setVisible(true);
+                ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
+
+                //usercanvas.display(user);
+            } else {
+                System.out.println("Login fail! User");
+                //calldisplay
+                JOptionPane.showMessageDialog(null, "Please check the username and password carefully.");
+
+            }
+        }
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "No account matched the entered credentials. Please check the username and password carefully.");
+        }
+        
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void accountTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountTypeActionPerformed
         // TODO add your handling code here:
         accountTypeIndex = accountType.getSelectedIndex();
+        String type;
+        if (accountTypeIndex == 1) {
+            type = "user";
+        } else {
+            type = "coder";
+        }
+        System.out.println("Changed to " + type);
 
     }//GEN-LAST:event_accountTypeActionPerformed
 
@@ -263,6 +280,7 @@ public class LogInScreen extends javax.swing.JPanel {
             for (int i = 1; i <= database.coders.size(); i++) {
                 if (name.equals(database.coders.get(i).getName())) {
                     coder = database.coders.get(i);
+                    System.out.println("Found coder account!");
                 }
             }
         } else {
@@ -270,6 +288,7 @@ public class LogInScreen extends javax.swing.JPanel {
             for (int i = 1; i <= database.users.size(); i++) {
                 if (name.equals(database.users.get(i).getName())) {
                     user = database.users.get(i);
+                    System.out.println("Found coder account!");
                 }
             }
         }

@@ -24,6 +24,9 @@ public class MyStack<Item>  implements Stack<Item>{
     private static class Node<Item> {
         private Item item;
         private Node<Item> next;
+        public Item getItem(){
+            return item;
+        }
     }
 
     /**
@@ -126,5 +129,17 @@ public class MyStack<Item>  implements Stack<Item>{
         System.out.println(stack);
         
     }
-    
+    public Item get(int index){
+        Item temp = null;
+        if(index<=n){
+        Node tempNode=first;
+        for(int i =0;i< index-1;i++){
+            tempNode=tempNode.next;
+        }
+         temp =  (Item) tempNode.getItem();}else{
+            System.out.println("Exception stack underflow! ");
+        }
+        
+        return temp;
+    }
 }

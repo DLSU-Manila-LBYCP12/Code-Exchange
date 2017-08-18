@@ -24,7 +24,7 @@ public class CodeExchangeDataBase {
     MyList<CodeExchangeUserProfile> users = new MyList<>();
     MyList<CodeExchangeCoderProfile> coders = new MyList<>();
     MyList<String> names = new MyList<>();
-    ArrayList<String> namesArrayList  = new ArrayList<>();
+    ArrayList<String> namesArrayList = new ArrayList<>();
     int codersSize = 0, usersSize = 0;
 
     public CodeExchangeDataBase() throws FileNotFoundException, IOException {
@@ -47,11 +47,11 @@ public class CodeExchangeDataBase {
             System.out.println(coders.get(i).getName() + "    :    " + coders.get(i).getPassword());
         }
     }
-    
+
     public ArrayList<String> getNames() {
-         names = new MyList<>();
-         ArrayList<String> namesArrayList = new ArrayList<>();
-         
+        names = new MyList<>();
+        ArrayList<String> namesArrayList = new ArrayList<>();
+
         for (int i = 1; i <= users.size(); i++) {
             names.add("User: " + users.get(i).getName());
             namesArrayList.add("User: " + users.get(i).getName());
@@ -75,18 +75,17 @@ public class CodeExchangeDataBase {
         BufferedReader br = new BufferedReader(source);
 
         String temp = br.readLine();
-        while(temp != null){
+        while (temp != null) {
             logs.add(temp);
             temp = br.readLine();
         }
-        
-        
+
         return interactions;
-        
+
     }
 
-    private void CodeExchangeDataBaseInit() throws IOException {
-
+    public void CodeExchangeDataBaseInit() throws IOException {
+        usersSize = 0;
         //reading users from the text file
         String path = System.getProperty("user.dir") + "\\src\\project\\users\\users.txt";
         File f = new File(path);
@@ -128,7 +127,6 @@ public class CodeExchangeDataBase {
             temp_profile.setEmail(br.readLine());
             temp_profile.setNumber(br.readLine());
             temp = br.readLine();
-            System.out.println(temp);
             StringTokenizer token = new StringTokenizer(temp, " ");
             MyLinkedList<String> languages = new MyLinkedList<>();
             while (token.hasMoreTokens()) {
@@ -146,5 +144,27 @@ public class CodeExchangeDataBase {
             }
             temp = br.readLine();
         }
+    }
+
+    public CodeExchangeUserProfile getProfile(String name) {
+        CodeExchangeUserProfile temp = null;
+        for (int i = 1; i < users.size(); i++) {
+            temp = users.get(i);
+            if (name.equals(temp.getName())) {
+                return temp;
+            }
+        }
+        return temp;
+    }
+
+    public CodeExchangeCoderProfile getProfileCoder(String name) {
+        CodeExchangeCoderProfile temp = null;
+        for (int i = 1; i < coders.size(); i++) {
+            temp = coders.get(i);
+            if (name.equals(temp.getName())) {
+                return temp;
+            }
+        }
+        return temp;
     }
 }

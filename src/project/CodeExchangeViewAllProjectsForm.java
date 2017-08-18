@@ -5,6 +5,12 @@
  */
 package project;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -13,15 +19,34 @@ import javax.swing.JPanel;
  */
 public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
     
-    CodeExchangeProjectPanelForm panelVariable = new CodeExchangeProjectPanelForm();
+    CodeExchangeProjectPanelForm panelVariable;
+    CodeExchangeRequestsDatabase database ;
     /**
      * Creates new form CodeExchangeViewAllProjectsForm
      */
-    public CodeExchangeViewAllProjectsForm() {
+    public CodeExchangeViewAllProjectsForm() throws IOException {
         initComponents();
-       
-       containerScrPane.add(panelVariable);
+        database = new CodeExchangeRequestsDatabase();
+       Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = this.getSize().width;
+        int h = this.getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        this.setLocation(x, y);
+        
+        panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(1));
         panelVariable.setVisible(true);
+        this.add(panelVariable);
+        
+//        for(int i=1;i<database.requests.size() +1;i++){
+//            
+//            panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(i));
+//            trypanel = panelVariable;
+//            trypanel.setVisible(true);
+//       containerPanel.add(panelVariable);
+//       System.out.println("added");
+//        panelVariable.setVisible(true);
+//        }
     }
 
     /**
@@ -37,6 +62,7 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         containerScrPane = new javax.swing.JScrollPane();
         containerPanel = new javax.swing.JPanel();
+        trypanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,15 +72,32 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 153, 51));
         jLabel2.setText("Project List");
 
+        javax.swing.GroupLayout trypanelLayout = new javax.swing.GroupLayout(trypanel);
+        trypanel.setLayout(trypanelLayout);
+        trypanelLayout.setHorizontalGroup(
+            trypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        trypanelLayout.setVerticalGroup(
+            trypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout containerPanelLayout = new javax.swing.GroupLayout(containerPanel);
         containerPanel.setLayout(containerPanelLayout);
         containerPanelLayout.setHorizontalGroup(
             containerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
+            .addGroup(containerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(trypanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(541, Short.MAX_VALUE))
         );
         containerPanelLayout.setVerticalGroup(
             containerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 284, Short.MAX_VALUE)
+            .addGroup(containerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(trypanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(273, Short.MAX_VALUE))
         );
 
         containerScrPane.setViewportView(containerPanel);
@@ -85,45 +128,13 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CodeExchangeViewAllProjectsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CodeExchangeViewAllProjectsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CodeExchangeViewAllProjectsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CodeExchangeViewAllProjectsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CodeExchangeViewAllProjectsForm().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel containerPanel;
     private javax.swing.JScrollPane containerScrPane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel trypanel;
     // End of variables declaration//GEN-END:variables
 }

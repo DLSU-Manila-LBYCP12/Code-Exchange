@@ -5,16 +5,26 @@
  */
 package project;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author iwcnrlee1
  */
 public class RequestForm extends javax.swing.JFrame {
 
+    private String requester;
+
     /**
      * Creates new form RequestForm
      */
-    public RequestForm() {
+    public RequestForm(String name) {
+        requester = name;
         initComponents();
     }
 
@@ -30,19 +40,19 @@ public class RequestForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Project = new javax.swing.JLabel();
-        ProjectText = new javax.swing.JTextField();
+        projectNameField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        FeaturesText = new javax.swing.JTextArea();
+        featuresField = new javax.swing.JTextArea();
         Description = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        DescriptionText = new javax.swing.JTextArea();
+        descriptionField = new javax.swing.JTextArea();
         Features = new javax.swing.JLabel();
         Language = new javax.swing.JLabel();
-        LanguageText = new javax.swing.JTextField();
+        languageField = new javax.swing.JTextField();
         Theme = new javax.swing.JLabel();
-        ThemeText = new javax.swing.JTextField();
+        themeField = new javax.swing.JTextField();
         Payment = new javax.swing.JLabel();
-        PaymentText = new javax.swing.JTextField();
+        paymentField = new javax.swing.JTextField();
         cancelBtn = new javax.swing.JButton();
         submitBtn = new javax.swing.JButton();
 
@@ -56,45 +66,45 @@ public class RequestForm extends javax.swing.JFrame {
 
         Project.setText("Project Name:");
 
-        ProjectText.addActionListener(new java.awt.event.ActionListener() {
+        projectNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProjectTextActionPerformed(evt);
+                projectNameFieldActionPerformed(evt);
             }
         });
 
-        FeaturesText.setColumns(20);
-        FeaturesText.setRows(5);
-        jScrollPane1.setViewportView(FeaturesText);
+        featuresField.setColumns(20);
+        featuresField.setRows(5);
+        jScrollPane1.setViewportView(featuresField);
 
         Description.setText("Description:");
 
-        DescriptionText.setColumns(20);
-        DescriptionText.setRows(5);
-        jScrollPane2.setViewportView(DescriptionText);
+        descriptionField.setColumns(20);
+        descriptionField.setRows(5);
+        jScrollPane2.setViewportView(descriptionField);
 
         Features.setText("Additional Features:");
 
         Language.setText("Language Required:");
 
-        LanguageText.addActionListener(new java.awt.event.ActionListener() {
+        languageField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LanguageTextActionPerformed(evt);
+                languageFieldActionPerformed(evt);
             }
         });
 
-        Theme.setText("Color Theme");
+        Theme.setText("Color Theme:");
 
-        ThemeText.addActionListener(new java.awt.event.ActionListener() {
+        themeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ThemeTextActionPerformed(evt);
+                themeFieldActionPerformed(evt);
             }
         });
 
-        Payment.setText("Payment Method:");
+        Payment.setText("Payment:");
 
-        PaymentText.addActionListener(new java.awt.event.ActionListener() {
+        paymentField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PaymentTextActionPerformed(evt);
+                paymentFieldActionPerformed(evt);
             }
         });
 
@@ -134,20 +144,19 @@ public class RequestForm extends javax.swing.JFrame {
                             .addComponent(Payment))
                         .addGap(82, 82, 82)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cancelBtn)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1)
-                                .addComponent(ProjectText)
-                                .addComponent(jScrollPane2)
-                                .addComponent(LanguageText, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(ThemeText, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(PaymentText, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                            .addComponent(jScrollPane1)
+                            .addComponent(projectNameField)
+                            .addComponent(jScrollPane2)
+                            .addComponent(languageField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(themeField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(paymentField, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(119, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(155, 155, 155)
-                    .addComponent(submitBtn)
-                    .addContainerGap(373, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(submitBtn)
+                .addGap(87, 87, 87)
+                .addComponent(cancelBtn)
+                .addGap(184, 184, 184))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +171,7 @@ public class RequestForm extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Project)
-                    .addComponent(ProjectText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(projectNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Description)
@@ -176,44 +185,41 @@ public class RequestForm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Theme)
-                            .addComponent(ThemeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(themeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Payment)
-                            .addComponent(PaymentText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27))
+                            .addComponent(paymentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(LanguageText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(languageField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(cancelBtn)
-                .addGap(35, 35, 35))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(490, Short.MAX_VALUE)
-                    .addComponent(submitBtn)
-                    .addGap(35, 35, 35)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelBtn)
+                    .addComponent(submitBtn))
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ProjectTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProjectTextActionPerformed
+    private void projectNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectNameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ProjectTextActionPerformed
+    }//GEN-LAST:event_projectNameFieldActionPerformed
 
-    private void LanguageTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LanguageTextActionPerformed
+    private void languageFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_languageFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LanguageTextActionPerformed
+    }//GEN-LAST:event_languageFieldActionPerformed
 
-    private void ThemeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemeTextActionPerformed
+    private void themeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themeFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ThemeTextActionPerformed
+    }//GEN-LAST:event_themeFieldActionPerformed
 
-    private void PaymentTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaymentTextActionPerformed
+    private void paymentFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PaymentTextActionPerformed
+    }//GEN-LAST:event_paymentFieldActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         // TODO add your handling code here:
@@ -221,61 +227,46 @@ public class RequestForm extends javax.swing.JFrame {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+        System.out.println("Submitted a request form.");
+        String n = System.lineSeparator();
+        String submissionForm = "";
+        submissionForm = requester + n + projectNameField.getText() + n + "start description" + n + descriptionField.getText() + n + "end description" + n + "start features" + n + featuresField.getText() + n + "end features" + n + languageField.getText() + n + themeField.getText() + n + paymentField.getText() + n + "end";
+        String path = System.getProperty("user.dir") + "\\src\\project\\submittedprojects\\submittedprojects.txt";
+        FileWriter writer;
+        try {
+            writer = new FileWriter(path, true);
+            PrintWriter print = new PrintWriter(writer);
+            print.println(submissionForm);
+            print.close();
+        } catch (IOException ex) {
+            Logger.getLogger(RegistrationUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(null, "Request Submitted!");
+        this.dispose();
     }//GEN-LAST:event_submitBtnActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RequestForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RequestForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RequestForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RequestForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RequestForm().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Description;
-    private javax.swing.JTextArea DescriptionText;
     private javax.swing.JLabel Features;
-    private javax.swing.JTextArea FeaturesText;
     private javax.swing.JLabel Language;
-    private javax.swing.JTextField LanguageText;
     private javax.swing.JLabel Payment;
-    private javax.swing.JTextField PaymentText;
     private javax.swing.JLabel Project;
-    private javax.swing.JTextField ProjectText;
     private javax.swing.JLabel Theme;
-    private javax.swing.JTextField ThemeText;
     private javax.swing.JButton cancelBtn;
+    private javax.swing.JTextArea descriptionField;
+    private javax.swing.JTextArea featuresField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField languageField;
+    private javax.swing.JTextField paymentField;
+    private javax.swing.JTextField projectNameField;
     private javax.swing.JButton submitBtn;
+    private javax.swing.JTextField themeField;
     // End of variables declaration//GEN-END:variables
 }

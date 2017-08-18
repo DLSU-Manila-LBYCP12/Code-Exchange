@@ -24,20 +24,24 @@ public class RegistrationCoder extends javax.swing.JPanel {
     String newline = System.lineSeparator();
     String nl = newline;
     String summary="";
+    public CodeExchangeDataBase database;
     /**
      * Creates new form NewJPanel
      */
-    public RegistrationCoder() {
+    public RegistrationCoder(CodeExchangeDataBase database) {
         
         
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.database = database;
          int w = this.getSize().width;
         int h = this.getSize().height;
         int x = (dim.width - w) / 2;
         int y = (dim.height - h) / 2;
         this.setLocation(x, y);
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -240,7 +244,11 @@ public class RegistrationCoder extends javax.swing.JPanel {
                 }
                 
         
-        
+                try {
+                    database = new CodeExchangeDataBase();
+                } catch (IOException ex) {
+                    Logger.getLogger(RegistrationCoder.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 Window dialog = SwingUtilities.windowForComponent(cancel);
                 dialog.dispose();
             } else if (confirm == 1) {

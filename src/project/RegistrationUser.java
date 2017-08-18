@@ -27,12 +27,15 @@ public class RegistrationUser extends javax.swing.JPanel {
     String newline = System.lineSeparator();
     String nl = newline;
     String summary="";
+    public CodeExchangeDataBase database;
     /**
      * Creates new form NewJPanel
+     * @param database
      */
-    public RegistrationUser() {
-        initComponents();
+    public RegistrationUser(CodeExchangeDataBase database) {
         
+        initComponents();
+        this.database = database;
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
          int w = this.getSize().width;
         int h = this.getSize().height;
@@ -42,6 +45,10 @@ public class RegistrationUser extends javax.swing.JPanel {
         
         
     }
+
+    
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -261,7 +268,11 @@ public class RegistrationUser extends javax.swing.JPanel {
                 }
                 
         
-        
+                try {
+                    database = new CodeExchangeDataBase();
+                } catch (IOException ex) {
+                    Logger.getLogger(RegistrationUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 Window dialog = SwingUtilities.windowForComponent(cancel);
                 dialog.dispose();
             } else if (confirm == 1) {

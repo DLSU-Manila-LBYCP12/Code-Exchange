@@ -3,6 +3,8 @@ package project;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -176,6 +178,11 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        try {
+            database.updateDataBase();
+        } catch (IOException ex) {
+            Logger.getLogger(CodeExchangeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        }
         java.awt.Window dialog = SwingUtilities.windowForComponent(loginBtn);
         System.out.println("Displaying: Login screen");
         JFrame log = new JFrame("LogIn");
@@ -210,10 +217,22 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
                 null, options, options[0]);
         switch (choice) {
             case 0:
+        {
+            try {
                 registrationUser();
+            } catch (IOException ex) {
+                Logger.getLogger(CodeExchangeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case 1:
+        {
+            try {
                 registrationCoder();
+            } catch (IOException ex) {
+                Logger.getLogger(CodeExchangeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case 2:
                 break;
@@ -262,12 +281,12 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         });
     }
 
-    private void registrationUser() {
+    private void registrationUser() throws IOException {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         JFrame reg = new JFrame("Register");
         reg.setVisible(true);
         reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        RegistrationUser newForm = new RegistrationUser();
+        RegistrationUser newForm = new RegistrationUser(database);
         reg.setSize(500, 500);
         newForm.setVisible(true);
         reg.add(newForm);
@@ -276,14 +295,15 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         int x = (dim.width - w) / 2;
         int y = (dim.height - h) / 2;
         reg.setLocation(x, y);
+        database = new CodeExchangeDataBase();
     }
 
-    private void registrationCoder() {
+    private void registrationCoder() throws IOException {
         JFrame reg = new JFrame("Register");
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         reg.setVisible(true);
         reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        RegistrationCoder newForm = new RegistrationCoder();
+        RegistrationCoder newForm = new RegistrationCoder(database);
         reg.add(newForm);
         reg.setSize(500, 450);
         newForm.setVisible(true);
@@ -292,6 +312,8 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         int x = (dim.width - w) / 2;
         int y = (dim.height - h) / 2;
         reg.setLocation(x, y);
+        
+        database = new CodeExchangeDataBase();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
