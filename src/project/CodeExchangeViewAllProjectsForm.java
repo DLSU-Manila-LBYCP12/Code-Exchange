@@ -5,17 +5,23 @@
  */
 package project;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author Student
  */
 public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
-
+    
+    CodeExchangeProjectPanelForm panelVariable = new CodeExchangeProjectPanelForm();
     /**
      * Creates new form CodeExchangeViewAllProjectsForm
      */
     public CodeExchangeViewAllProjectsForm() {
         initComponents();
+       
+        containerPanel.add(panelVariable);
+        panelVariable.setVisible(true);
     }
 
     /**
@@ -29,8 +35,8 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        containerScrPane = new javax.swing.JScrollPane();
+        containerPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,18 +46,18 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 153, 51));
         jLabel2.setText("Project List");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout containerPanelLayout = new javax.swing.GroupLayout(containerPanel);
+        containerPanel.setLayout(containerPanelLayout);
+        containerPanelLayout.setHorizontalGroup(
+            containerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 398, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        containerPanelLayout.setVerticalGroup(
+            containerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 284, Short.MAX_VALUE)
         );
 
-        jScrollPane1.setViewportView(jPanel1);
+        containerScrPane.setViewportView(containerPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,7 +68,7 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(60, 60, 60))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(containerScrPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,7 +79,7 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1))
+                .addComponent(containerScrPane))
         );
 
         pack();
@@ -115,9 +121,9 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel containerPanel;
+    private javax.swing.JScrollPane containerScrPane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
