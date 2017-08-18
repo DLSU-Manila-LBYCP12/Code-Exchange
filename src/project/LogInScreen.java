@@ -5,7 +5,13 @@
  */
 package project;
 
+import com.sun.glass.ui.Window;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -18,7 +24,9 @@ public class LogInScreen extends javax.swing.JPanel {
     public CodeExchangeUserProfile user;
     public CodeExchangeDataBase database;
     public CodeExchangeUserCanvas usercanvas = new CodeExchangeUserCanvas();
-    public CoderCanvas codercanvas = new CoderCanvas();
+    public CodeExchangeUserScreen userscreen = new CodeExchangeUserScreen();
+    public CodeExchangeDisplay display;
+   // public CodeExchangeCoderCanvas codercanvas;
 
     /**
      * Creates new form NewJPanel
@@ -170,8 +178,8 @@ public class LogInScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        // TODO add your handling code here:
-
+        this.setVisible(false);
+        ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
@@ -182,9 +190,7 @@ public class LogInScreen extends javax.swing.JPanel {
                    System.out.println("Login success!");
                    //calldisplay
                    //remove window
-                   codercanvas.display(coder);
-                   SubmitProjectForm form = new SubmitProjectForm();
-                   form.setVisible(true);
+                   //codercanvas.display(coder);
                }else{ 
                    System.out.println("Login fail!");
                    //calldisplay
@@ -192,9 +198,14 @@ public class LogInScreen extends javax.swing.JPanel {
                }
         } else {
                 if(user.getPassword().equals(String.valueOf(passwordField.getPassword()))){
-                   System.out.println("Login successful!");
-                   //calldisplay
-                   //remove window
+                    try {
+                        display = new CodeExchangeDisplay();
+                    } catch (IOException ex) {
+                        Logger.getLogger(LogInScreen.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                   System.out.println("Login success!");
+                   userscreen.setVisible(true);
+                   ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
                    usercanvas.display(user);
                }else{ 
                    System.out.println("Login fail!");

@@ -18,8 +18,6 @@ import project.RegistrationUser;
  * @author iwcnrlee1
  */
 public class CodeExchangeUserScreen extends javax.swing.JFrame {
-
-    Boolean Logged=false;
     /**
      * Creates new form NewJFrame
      */
@@ -243,37 +241,11 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestBtnActionPerformed
-        System.out.println("Displaying: Login screen");
-        JFrame log = new JFrame("LogIn");
-        
-        log.setVisible(true);
-        log.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        LogInScreen newForm = new LogInScreen();
-        log.setSize(500,350);
-        newForm.setVisible(true);
-        log.add(newForm);
-        Logged=true;
-        //UpdateScreen();
+        System.out.println("Displaying: New Request");
     }//GEN-LAST:event_requestBtnActionPerformed
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
-        System.out.println("Displaying: Signup screen");
-                String[] options = new String[]{"User", "Coder", "Cancel"};
-                int choice = JOptionPane.showOptionDialog(null, "Select the type of account you want to create.", "Register",
-                        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-                        null, options, options[0]);
-                switch (choice) {
-                    case 0:
-                        registrationUser();
-                        break;
-                    case 1:
-                        registrationCoder();
-                        break;
-                    case 2:
-                        break;
-                    default:
-                        break;
-                }
+        System.out.println("Displaying: Existing Requests");
     }//GEN-LAST:event_viewBtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -334,27 +306,6 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
         });
     }
     
-    private void registrationUser() {
-        JFrame reg = new JFrame("Register");
-        
-        reg.setVisible(true);
-        reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        RegistrationUser newForm = new RegistrationUser();
-        reg.setSize(500,500);
-        newForm.setVisible(true);
-        reg.add(newForm);
-    }
-    private void registrationCoder() {
-        JFrame reg = new JFrame("Register");
-        
-        reg.setVisible(true);
-        reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        RegistrationCoder newForm = new RegistrationCoder();
-        reg.setSize(500,450);
-        newForm.setVisible(true);
-        reg.add(newForm);
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogoffBtn;
     private javax.swing.JLabel Search;
