@@ -183,6 +183,8 @@ public class LogInScreen extends javax.swing.JPanel {
                    //calldisplay
                    //remove window
                    codercanvas.display(coder);
+                   SubmitProjectForm form = new SubmitProjectForm();
+                   form.setVisible(true);
                }else{ 
                    System.out.println("Login fail!");
                    //calldisplay

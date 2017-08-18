@@ -60,7 +60,7 @@ public class MyGraph implements ph.edu.dlsu.EMI.myinterface.Graph {
         }
         this.weights = weights;
     }
-    MyGraph(ArrayList<String> nodes, ArrayList<ArrayList<String>> adjacency) {
+    public MyGraph(ArrayList<String> nodes, ArrayList<ArrayList<String>> adjacency) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

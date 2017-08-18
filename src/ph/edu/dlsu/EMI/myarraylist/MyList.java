@@ -98,6 +98,14 @@ public class MyList<E> implements List<E>{
         }
         return false;
     }
+    public int indexOf(E item){
+        for(int i = 0 ;i < NumItems;i++){
+            if(item == items[i]){
+                return i+1;
+            }
+        }
+        return -1;
+    }
     public String toString(){
         String temp="{";
         if(isEmpty()){
