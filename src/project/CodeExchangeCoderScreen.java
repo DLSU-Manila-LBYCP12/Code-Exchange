@@ -43,7 +43,6 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         viewRequestButton = new javax.swing.JButton();
-        submitButton = new javax.swing.JButton();
         label3 = new java.awt.Label();
         label4 = new java.awt.Label();
         jLabel3 = new javax.swing.JLabel();
@@ -82,7 +81,7 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
         jLabel2.setText("Welcome to Code Exchange!");
 
         viewRequestButton.setFont(new java.awt.Font("Symphony Black", 1, 14)); // NOI18N
-        viewRequestButton.setText("View Requests");
+        viewRequestButton.setText("View Available Projects");
         viewRequestButton.setAutoscrolls(true);
         viewRequestButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         viewRequestButton.setBorderPainted(false);
@@ -94,16 +93,6 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
         viewRequestButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewRequestButtonActionPerformed(evt);
-            }
-        });
-
-        submitButton.setFont(new java.awt.Font("Swis721 Ex BT", 1, 14)); // NOI18N
-        submitButton.setText("Submit Projects");
-        submitButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        submitButton.setBorderPainted(false);
-        submitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitButtonActionPerformed(evt);
             }
         });
 
@@ -148,15 +137,14 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(200, 200, 200)
-                        .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(viewRequestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(71, 71, 71)
-                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)
-                        .addComponent(logOffButton, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(viewRequestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logOffButton, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,10 +159,9 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
                 .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewRequestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(logOffButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(78, 78, 78))
+                .addGap(72, 72, 72))
         );
 
         signupBtn1.setBackground(new java.awt.Color(255, 255, 255));
@@ -251,11 +238,6 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
         System.out.println("Displaying: New Request");
         
     }//GEN-LAST:event_viewRequestButtonActionPerformed
-
-    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        System.out.println("Displaying: Existing Requests");
-        project.setVisible(true);
-    }//GEN-LAST:event_submitButtonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -337,7 +319,6 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
     private javax.swing.JButton logOffButton;
     private javax.swing.JButton profileButton;
     private javax.swing.JButton signupBtn1;
-    private javax.swing.JButton submitButton;
     private javax.swing.JButton viewRequestButton;
     // End of variables declaration//GEN-END:variables
 

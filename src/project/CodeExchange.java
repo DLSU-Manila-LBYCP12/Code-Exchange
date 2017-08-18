@@ -3,8 +3,8 @@ package project;
 import acm.program.*;
 import acm.graphics.*;
 import acm.util.*;
-import acmx.export.javax.swing.JButton;
-import acmx.export.javax.swing.JLabel;
+//import acmx.export.javax.swing.JButton;
+//import acmx.export.javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -14,7 +14,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import javax.swing.*;
 
 
 public class CodeExchange extends Program {
