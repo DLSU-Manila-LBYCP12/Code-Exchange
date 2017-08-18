@@ -17,13 +17,13 @@ import project.RegistrationUser;
  *
  * @author iwcnrlee1
  */
-public class CodeExchangeDisplay extends javax.swing.JFrame {
+public class CodeExchangeUserScreen extends javax.swing.JFrame {
 
     Boolean Logged=false;
     /**
      * Creates new form NewJFrame
      */
-    public CodeExchangeDisplay() {
+    public CodeExchangeUserScreen() {
         initComponents();
     }
 
@@ -41,11 +41,16 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        loginBtn = new javax.swing.JButton();
-        signupBtn = new javax.swing.JButton();
+        requestBtn = new javax.swing.JButton();
+        viewBtn = new javax.swing.JButton();
         label3 = new java.awt.Label();
         label4 = new java.awt.Label();
         jLabel3 = new javax.swing.JLabel();
+        LogoffBtn = new javax.swing.JButton();
+        signupBtn1 = new javax.swing.JButton();
+        signupBtn3 = new javax.swing.JButton();
+        Search = new javax.swing.JLabel();
+        SearchText = new javax.swing.JTextField();
 
         label1.setText("label1");
 
@@ -75,24 +80,24 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Register Sans BTN", 1, 36)); // NOI18N
         jLabel2.setText("Welcome to Code Exchange!");
 
-        loginBtn.setFont(new java.awt.Font("Symphony Black", 1, 14)); // NOI18N
-        loginBtn.setText("Log In");
-        loginBtn.setAutoscrolls(true);
-        loginBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        loginBtn.setBorderPainted(false);
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+        requestBtn.setFont(new java.awt.Font("Symphony Black", 1, 14)); // NOI18N
+        requestBtn.setText("Make new Request");
+        requestBtn.setAutoscrolls(true);
+        requestBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        requestBtn.setBorderPainted(false);
+        requestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
+                requestBtnActionPerformed(evt);
             }
         });
 
-        signupBtn.setFont(new java.awt.Font("Swis721 Ex BT", 1, 14)); // NOI18N
-        signupBtn.setText("Sign Up");
-        signupBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        signupBtn.setBorderPainted(false);
-        signupBtn.addActionListener(new java.awt.event.ActionListener() {
+        viewBtn.setFont(new java.awt.Font("Swis721 Ex BT", 1, 14)); // NOI18N
+        viewBtn.setText("View Existing");
+        viewBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        viewBtn.setBorderPainted(false);
+        viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signupBtnActionPerformed(evt);
+                viewBtnActionPerformed(evt);
             }
         });
 
@@ -109,34 +114,51 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         label4.setText("___________________________________________________________________");
 
         jLabel3.setFont(new java.awt.Font("Register Sans BTN", 1, 36)); // NOI18N
-        jLabel3.setText("Do you want to Log in or Sign up?");
+        jLabel3.setText("Do you want to make new request or view existing?");
+
+        LogoffBtn.setFont(new java.awt.Font("Swis721 Ex BT", 1, 14)); // NOI18N
+        LogoffBtn.setText("Log off");
+        LogoffBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        LogoffBtn.setBorderPainted(false);
+        LogoffBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoffBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123)
-                .addComponent(signupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(236, 236, 236))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
                         .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 126, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(requestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LogoffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(24, 24, 24)
                 .addComponent(label3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,10 +166,40 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
                 .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(signupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(requestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogoffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(78, 78, 78))
         );
+
+        signupBtn1.setBackground(new java.awt.Color(255, 255, 255));
+        signupBtn1.setFont(new java.awt.Font("Swis721 Ex BT", 1, 14)); // NOI18N
+        signupBtn1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        signupBtn1.setBorderPainted(false);
+        signupBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signupBtn1ActionPerformed(evt);
+            }
+        });
+
+        signupBtn3.setFont(new java.awt.Font("Swis721 Ex BT", 1, 14)); // NOI18N
+        signupBtn3.setText("Profile");
+        signupBtn3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        signupBtn3.setBorderPainted(false);
+        signupBtn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signupBtn3ActionPerformed(evt);
+            }
+        });
+
+        Search.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        Search.setText("Search:");
+
+        SearchText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchTextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,16 +209,31 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(54, 54, 54)
+                        .addComponent(Search)
+                        .addGap(18, 18, 18)
+                        .addComponent(SearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(signupBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(signupBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(signupBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Search)
+                        .addComponent(SearchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(signupBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -175,7 +242,7 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+    private void requestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestBtnActionPerformed
         System.out.println("Displaying: Login screen");
         JFrame log = new JFrame("LogIn");
         
@@ -187,9 +254,9 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         log.add(newForm);
         Logged=true;
         //UpdateScreen();
-    }//GEN-LAST:event_loginBtnActionPerformed
+    }//GEN-LAST:event_requestBtnActionPerformed
 
-    private void signupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtnActionPerformed
+    private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
         System.out.println("Displaying: Signup screen");
                 String[] options = new String[]{"User", "Coder", "Cancel"};
                 int choice = JOptionPane.showOptionDialog(null, "Select the type of account you want to create.", "Register",
@@ -207,11 +274,27 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
                     default:
                         break;
                 }
-    }//GEN-LAST:event_signupBtnActionPerformed
+    }//GEN-LAST:event_viewBtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void signupBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_signupBtn1ActionPerformed
+
+    private void LogoffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoffBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LogoffBtnActionPerformed
+
+    private void signupBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtn3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_signupBtn3ActionPerformed
+
+    private void SearchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,21 +313,23 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CodeExchangeDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CodeExchangeUserScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CodeExchangeDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CodeExchangeUserScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CodeExchangeDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CodeExchangeUserScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CodeExchangeDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CodeExchangeUserScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CodeExchangeDisplay().setVisible(true);
+                new CodeExchangeUserScreen().setVisible(true);
             }
         });
     }
@@ -271,6 +356,9 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LogoffBtn;
+    private javax.swing.JLabel Search;
+    private javax.swing.JTextField SearchText;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -279,8 +367,10 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     private java.awt.Label label1;
     private java.awt.Label label3;
     private java.awt.Label label4;
-    private javax.swing.JButton loginBtn;
-    private javax.swing.JButton signupBtn;
+    private javax.swing.JButton requestBtn;
+    private javax.swing.JButton signupBtn1;
+    private javax.swing.JButton signupBtn3;
+    private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables
 
     private void UpdateScreen() {
