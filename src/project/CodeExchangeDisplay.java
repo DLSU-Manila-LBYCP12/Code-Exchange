@@ -1,5 +1,7 @@
 package project;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -17,7 +19,9 @@ import javax.swing.JOptionPane;
 public class CodeExchangeDisplay extends javax.swing.JFrame {
 
     public CodeExchangeDataBase database;
-    public Boolean Logged  = false;
+    public Boolean Logged = false;
+    // Get the size of the screen
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     /**
      * Creates new form NewJFrame
@@ -25,7 +29,11 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     public CodeExchangeDisplay() throws IOException {
         initDataBase();
         initComponents();
-        
+        int w = this.getSize().width;
+        int h = this.getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        this.setLocation(x, y);
     }
 
     /**
@@ -37,8 +45,6 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label1 = new java.awt.Label();
-        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -48,19 +54,8 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         label4 = new java.awt.Label();
         jLabel3 = new javax.swing.JLabel();
 
-        label1.setText("label1");
-
-        jButton3.setBackground(new java.awt.Color(153, 153, 255));
-        jButton3.setFont(new java.awt.Font("Swis721 Ex BT", 1, 14)); // NOI18N
-        jButton3.setText("Sign Up");
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("CodeExhange by Rivera, Lee, Minguez");
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -119,17 +114,20 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123)
+                .addGap(152, 152, 152)
                 .addComponent(signupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(236, 236, 236))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(122, 122, 122)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(41, 41, 41)))
                 .addGap(0, 126, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,14 +182,25 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         log.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         LogInScreen newForm = new LogInScreen(database);
         log.setSize(500, 350);
+        log.setLocation(WIDTH, WIDTH);
         newForm.setVisible(true);
         log.add(newForm);
-        Logged=true;
+
+        
+        int w = log.getSize().width;
+        int h = log.getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+
+       
+        log.setLocation(x, y);
+
+        Logged = true;
         //UpdateScreen();
         Logged = true;
         UpdateScreen();
     }//GEN-LAST:event_loginBtnActionPerformed
-
+    
     private void signupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtnActionPerformed
         System.out.println("Displaying: Signup screen");
         String[] options = new String[]{"User", "Coder", "Cancel"};
@@ -211,10 +220,6 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_signupBtnActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,10 +252,10 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try{
-                new CodeExchangeDisplay().setVisible(true);
-                }catch(Exception e){
-                    
+                try {
+                    new CodeExchangeDisplay().setVisible(true);
+                } catch (Exception e) {
+
                 }
             }
         });
@@ -279,12 +284,10 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private java.awt.Label label1;
     private java.awt.Label label3;
     private java.awt.Label label4;
     private javax.swing.JButton loginBtn;

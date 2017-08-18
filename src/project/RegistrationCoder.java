@@ -5,6 +5,8 @@
  */
 package project;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.Window;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,6 +28,13 @@ public class RegistrationCoder extends javax.swing.JPanel {
      * Creates new form NewJPanel
      */
     public RegistrationCoder() {
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+         int w = this.getSize().width;
+        int h = this.getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        this.setLocation(x, y);
+        
         initComponents();
     }
 
@@ -255,6 +264,7 @@ public class RegistrationCoder extends javax.swing.JPanel {
 
     private void companyNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyNameFieldActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_companyNameFieldActionPerformed
 
 

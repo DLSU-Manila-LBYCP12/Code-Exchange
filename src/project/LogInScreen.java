@@ -6,6 +6,8 @@
 package project;
 
 import com.sun.glass.ui.Window;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -27,14 +29,21 @@ public class LogInScreen extends javax.swing.JPanel {
     public CodeExchangeUserScreen userscreen = new CodeExchangeUserScreen();
     public CodeExchangeCoderScreen coderscreen = new CodeExchangeCoderScreen();
     public CodeExchangeDisplay display;
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
    // public CodeExchangeCoderCanvas codercanvas;
 
     /**
      * Creates new form NewJPanel
+     * @param database
      */
     public LogInScreen(CodeExchangeDataBase database) {
        
         //this.codercanvas = new CodeExchangeCoderCanvas();
+        int w = this.getSize().width;
+        int h = this.getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        this.setLocation(x, y);
         initComponents();
         this.database = database;
     }
@@ -180,7 +189,7 @@ public class LogInScreen extends javax.swing.JPanel {
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         this.setVisible(false);
-        ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
+         SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
