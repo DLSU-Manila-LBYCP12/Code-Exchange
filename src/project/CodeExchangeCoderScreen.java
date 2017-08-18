@@ -26,8 +26,7 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
     CodeExchangeCoderProfile profile;
     CodeExchangeDataBase database ;
     public String name;
-    public SubmitProjectForm project = new SubmitProjectForm();
-    public CodeExchangeViewAllProjectsForm projectsForm = new CodeExchangeViewAllProjectsForm();
+    
     /**
      * Creates new form NewJFrame
      */
@@ -277,8 +276,15 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRequestButtonActionPerformed
+        CodeExchangeViewAllProjectsForm projectsForm ;
+        try {
+            projectsForm = new CodeExchangeViewAllProjectsForm(profile);
+            projectsForm.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(CodeExchangeCoderScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println("Displaying: New Request");
-        projectsForm.setVisible(true);
+        
     }//GEN-LAST:event_viewRequestButtonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

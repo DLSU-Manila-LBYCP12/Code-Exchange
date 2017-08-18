@@ -50,7 +50,7 @@ public class CodeExchangeRequestsDatabase {
             String feats = "";
             while (!temp.equals("end features")) {
 
-                desc += temp + System.lineSeparator();
+                feats += temp + System.lineSeparator();
                 temp = br.readLine();
             }
             tempRequest.setFeatures(feats);

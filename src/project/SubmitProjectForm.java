@@ -22,16 +22,25 @@ import project.RegistrationUser;
 public class SubmitProjectForm extends javax.swing.JFrame {
      private String submissionForm;
      private String newLine = System.lineSeparator();
-     private String n = newLine;        
+     private String n = newLine;
+     private String title;
+     private CodeExchangeCoderProfile profile;
     /**
      * Creates new form SubmitProjectForm
      * @param projectName
      */
-    public SubmitProjectForm() {
+   
+    /**
+     * Creates new form SubmitProjectForm
+     * @param request
+     * @param projectName
+     */
+   
+    SubmitProjectForm(CodeExchangeRequest request, CodeExchangeCoderProfile profile) {
         initComponents();
-        
-    }
-
+        this.profile = profile;
+        this.title = request.getTitle();
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -255,8 +264,8 @@ public class SubmitProjectForm extends javax.swing.JFrame {
 
     private void submitProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitProjectActionPerformed
         // TODO add your handling code here:
-        submissionForm = languageTextArea.getText() + n + featuresTextArea.getText() + n + screenshotTextArea.getText() + n + addedTextArea.getText() + n + codeTextArea.getText() + n + "end";
-        String path = System.getProperty("user.dir") + "\\src\\project\\submittedprojects\\submittedprojects.txt";
+        submissionForm = profile.getName() +n+ title +n+languageTextArea.getText() + n + featuresTextArea.getText() + n + screenshotTextArea.getText() + n + addedTextArea.getText() + n + codeTextArea.getText() + n + "end";
+        String path = System.getProperty("user.dir") + "\\src\\project\\projectlist\\projectlist.txt";
         FileWriter writer;
         try {
             writer = new FileWriter(path, true);
@@ -266,6 +275,7 @@ public class SubmitProjectForm extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(RegistrationUser.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.dispose();
     }//GEN-LAST:event_submitProjectActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
@@ -279,40 +289,7 @@ public class SubmitProjectForm extends javax.swing.JFrame {
         dialog.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SubmitProjectForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SubmitProjectForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SubmitProjectForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SubmitProjectForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SubmitProjectForm().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea addedTextArea;

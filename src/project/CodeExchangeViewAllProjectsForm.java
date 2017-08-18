@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -19,14 +20,23 @@ import javax.swing.JPanel;
  */
 public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
 
-    
     CodeExchangeRequestsDatabase database;
-
+    CodeExchangeCoderProfile profile;
     /**
      * Creates new form CodeExchangeViewAllProjectsForm
      */
     public CodeExchangeViewAllProjectsForm() throws IOException {
         initComponents();
+        init();
+    }
+
+    public CodeExchangeViewAllProjectsForm(CodeExchangeCoderProfile profile) throws IOException {
+        initComponents();
+        this.profile = profile;
+        init();
+    }
+
+    public void init() throws IOException{
         database = new CodeExchangeRequestsDatabase();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         int w = this.getSize().width;
@@ -38,16 +48,23 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
 //        panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(1));
 //        panelVariable.setVisible(true);
 //        this.add(panelVariable);
-        for (int i = 1; i < database.requests.size() + 1; i++) {
-
-            CodeExchangeProjectPanelForm panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(i));
-            
-            containerScrPane.getViewport().add(panelVariable);
-            System.out.println("added");
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+ 
+        panel.setVisible(true);
+        panel.setSize(500, 500);
+            for(int i=1;i<database.requests.size()+1;i++){
+            CodeExchangeProjectPanelForm panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(i),profile);
+            System.out.println(database.requests.get(i).getFeatures());
             panelVariable.setVisible(true);
-        }
-    }
+            panel.add(panelVariable);
+            
+            
+            System.out.println("added");
+            }
 
+            containerScrPane.getViewport().setView(panel);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,7 +87,7 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
         jLabel2.setText("Project List");
 
         containerScrPane.setViewportBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        containerScrPane.setMinimumSize(new java.awt.Dimension(500, 300));
+        containerScrPane.setMinimumSize(new java.awt.Dimension(700, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
