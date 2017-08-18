@@ -23,8 +23,9 @@ public class LogInScreen extends javax.swing.JPanel {
     public CodeExchangeCoderProfile coder;
     public CodeExchangeUserProfile user;
     public CodeExchangeDataBase database;
-    public CodeExchangeUserCanvas usercanvas = new CodeExchangeUserCanvas();
+   // public CodeExchangeUserCanvas usercanvas = new CodeExchangeUserCanvas();
     public CodeExchangeUserScreen userscreen = new CodeExchangeUserScreen();
+    public CodeExchangeCoderScreen coderscreen = new CodeExchangeCoderScreen();
     public CodeExchangeDisplay display;
    // public CodeExchangeCoderCanvas codercanvas;
 
@@ -191,6 +192,7 @@ public class LogInScreen extends javax.swing.JPanel {
                    //calldisplay
                    //remove window
                    //codercanvas.display(coder);
+                   coderscreen.setVisible(true);
                }else{ 
                    System.out.println("Login fail!");
                    //calldisplay
@@ -206,7 +208,7 @@ public class LogInScreen extends javax.swing.JPanel {
                    System.out.println("Login success!");
                    userscreen.setVisible(true);
                    ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
-                   usercanvas.display(user);
+                   //usercanvas.display(user);
                }else{ 
                    System.out.println("Login fail!");
                    //calldisplay
