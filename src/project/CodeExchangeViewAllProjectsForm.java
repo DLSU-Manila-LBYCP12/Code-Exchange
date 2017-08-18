@@ -18,35 +18,34 @@ import javax.swing.JPanel;
  * @author Student
  */
 public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
+
     
-    CodeExchangeProjectPanelForm panelVariable;
-    CodeExchangeRequestsDatabase database ;
+    CodeExchangeRequestsDatabase database;
+
     /**
      * Creates new form CodeExchangeViewAllProjectsForm
      */
     public CodeExchangeViewAllProjectsForm() throws IOException {
         initComponents();
         database = new CodeExchangeRequestsDatabase();
-       Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         int w = this.getSize().width;
         int h = this.getSize().height;
         int x = (dim.width - w) / 2;
         int y = (dim.height - h) / 2;
         this.setLocation(x, y);
-        
-        panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(1));
-        panelVariable.setVisible(true);
-        this.add(panelVariable);
-        
-//        for(int i=1;i<database.requests.size() +1;i++){
-//            
-//            panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(i));
-//            trypanel = panelVariable;
-//            trypanel.setVisible(true);
-//       containerPanel.add(panelVariable);
-//       System.out.println("added");
+
+//        panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(1));
 //        panelVariable.setVisible(true);
-//        }
+//        this.add(panelVariable);
+        for (int i = 1; i < database.requests.size() + 1; i++) {
+
+            CodeExchangeProjectPanelForm panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(i));
+            
+            containerScrPane.getViewport().add(panelVariable);
+            System.out.println("added");
+            panelVariable.setVisible(true);
+        }
     }
 
     /**
@@ -61,8 +60,6 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         containerScrPane = new javax.swing.JScrollPane();
-        containerPanel = new javax.swing.JPanel();
-        trypanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,35 +69,8 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 153, 51));
         jLabel2.setText("Project List");
 
-        javax.swing.GroupLayout trypanelLayout = new javax.swing.GroupLayout(trypanel);
-        trypanel.setLayout(trypanelLayout);
-        trypanelLayout.setHorizontalGroup(
-            trypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        trypanelLayout.setVerticalGroup(
-            trypanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout containerPanelLayout = new javax.swing.GroupLayout(containerPanel);
-        containerPanel.setLayout(containerPanelLayout);
-        containerPanelLayout.setHorizontalGroup(
-            containerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(trypanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(541, Short.MAX_VALUE))
-        );
-        containerPanelLayout.setVerticalGroup(
-            containerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(trypanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(273, Short.MAX_VALUE))
-        );
-
-        containerScrPane.setViewportView(containerPanel);
+        containerScrPane.setViewportBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        containerScrPane.setMinimumSize(new java.awt.Dimension(500, 300));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,7 +81,7 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(60, 60, 60))
-            .addComponent(containerScrPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(containerScrPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,19 +92,16 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(containerScrPane))
+                .addComponent(containerScrPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel containerPanel;
     private javax.swing.JScrollPane containerScrPane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel trypanel;
     // End of variables declaration//GEN-END:variables
 }
