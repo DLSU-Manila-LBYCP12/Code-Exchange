@@ -17,5 +17,5 @@ public class CodeExchangeCanvasCoder {
         
     }
     
-    public void display
+//    public void display
 }

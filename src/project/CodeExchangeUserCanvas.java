@@ -21,14 +21,15 @@ public class CodeExchangeUserCanvas {
     private JButton Home;
     private JButton Notifications;
     private JButton NewProjectRequest;
+    private CodeExchangeUserProfile profile;
     public CodeExchangeUserCanvas()
     {
         
     }
     
     public void display(CodeExchangeUserProfile profile)
-    {
-        
+    {   this.profile = profile;
+        System.out.println("Displaying " + profile.getName());
     }
    
 }

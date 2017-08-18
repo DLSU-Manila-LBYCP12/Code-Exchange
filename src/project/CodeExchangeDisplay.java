@@ -25,6 +25,7 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     public CodeExchangeDisplay() throws IOException {
         initDataBase();
         initComponents();
+        
     }
 
     /**

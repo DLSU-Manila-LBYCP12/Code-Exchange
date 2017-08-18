@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package final_project;
+package project;
 
 import javax.swing.JButton;
 
@@ -16,11 +16,11 @@ import project.CodeExchangeCoderProfile;
  *
  * @author Minguez	//Changed
  */
-public class CodeExchangeCoderCanvas extends ConsoleProgram{
+public class CoderCanvas {
 	
     
         
-    public CodeExchangeCoderCanvas()
+    public CoderCanvas()
     {
     	
     }
@@ -28,6 +28,6 @@ public class CodeExchangeCoderCanvas extends ConsoleProgram{
     public void display(CodeExchangeCoderProfile profile)
     {
         //ano ididisplay ko
-        System.out.println(profile.getName());
+        System.out.println("Displaying " + profile.getName());
     }
 }

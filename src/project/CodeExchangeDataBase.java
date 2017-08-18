@@ -87,11 +87,11 @@ public class CodeExchangeDataBase {
     public void printAllProfiles(){
         System.out.println("Users");
         for(int i=1;i<=users.size();i++){
-            System.out.println(users.get(i).getName());
+            System.out.println(users.get(i).getName()+"    :    " + users.get(i).getPassword());
         }
         System.out.println("Coders");
         for(int i=1;i<=coders.size();i++){
-            System.out.println(coders.get(i).getName());
+            System.out.println(coders.get(i).getName()+"    :    " + coders.get(i).getPassword());
         }
     }
 }
