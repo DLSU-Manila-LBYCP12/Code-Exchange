@@ -16,13 +16,13 @@ import project.CodeExchangeCoderProfile;
  *
  * @author lyle
  */
-public class CoderCanvas extends GCanvas{
+public class CodeExchangeCanvasCoder extends GCanvas{
     //Di ko na gagalawin yung jbuttons na iimplement, canvas itself lang
     //Paano ko papalitan yung Canvas ng main?????
     private static final int LEFT_MARGIN = 20;
     private static final int TOP_MARGIN =30;
     
-    public CoderCanvas()
+    public CodeExchangeCanvasCoder()
     {
         
     }

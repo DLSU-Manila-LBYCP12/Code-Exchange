@@ -29,7 +29,7 @@ public class CodeExchangeUserCanvas {
     
     public void display(CodeExchangeUserProfile profile)
     {   this.profile = profile;
-        System.out.println("Displaying " + profile.getName());
+       // System.out.println("Displaying " + profile.getName());
     }
    
 }
