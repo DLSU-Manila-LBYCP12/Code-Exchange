@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 
 /*
@@ -175,24 +176,25 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+        java.awt.Window dialog = SwingUtilities.windowForComponent(loginBtn);
         System.out.println("Displaying: Login screen");
-        JFrame login = new JFrame("LogIn");
-        login.setVisible(true);
-        login.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        LogInScreen newForm = new LogInScreen(database);
-        login.setSize(500, 350);
-        login.setLocation(WIDTH, WIDTH);
+        JFrame log = new JFrame("LogIn");
+        log.setVisible(true);
+        log.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        LogInScreen newForm = new LogInScreen(database,  dialog);
+        log.setSize(500, 350);
+        log.setLocation(WIDTH, WIDTH);
         newForm.setVisible(true);
-        login.add(newForm);
+        log.add(newForm);
 
         
-        int w = login.getSize().width;
-        int h = login.getSize().height;
+        int w = log.getSize().width;
+        int h = log.getSize().height;
         int x = (dim.width - w) / 2;
         int y = (dim.height - h) / 2;
 
        
-        login.setLocation(x, y);
+        log.setLocation(x, y);
 
         Logged = true;
         //UpdateScreen();
@@ -261,6 +263,7 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     }
 
     private void registrationUser() {
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         JFrame reg = new JFrame("Register");
         reg.setVisible(true);
         reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -268,17 +271,27 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         reg.setSize(500, 500);
         newForm.setVisible(true);
         reg.add(newForm);
+        int w = reg.getSize().width;
+        int h = reg.getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        reg.setLocation(x, y);
     }
 
     private void registrationCoder() {
         JFrame reg = new JFrame("Register");
-
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         reg.setVisible(true);
         reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         RegistrationCoder newForm = new RegistrationCoder();
+        reg.add(newForm);
         reg.setSize(500, 450);
         newForm.setVisible(true);
-        reg.add(newForm);
+        int w = reg.getSize().width;
+        int h = reg.getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        reg.setLocation(x, y);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

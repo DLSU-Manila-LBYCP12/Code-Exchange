@@ -1,6 +1,8 @@
 package project;
 
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import project.LogInScreen;
@@ -21,8 +23,16 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    
     public CodeExchangeUserScreen() {
+        
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = this.getSize().width;
+        int h = this.getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        this.setLocation(x, y);
     }
 
     /**
@@ -45,8 +55,6 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
         label4 = new java.awt.Label();
         jLabel3 = new javax.swing.JLabel();
         LogoffBtn = new javax.swing.JButton();
-        signupBtn1 = new javax.swing.JButton();
-        signupBtn3 = new javax.swing.JButton();
         Search = new javax.swing.JLabel();
         SearchText = new javax.swing.JTextField();
 
@@ -171,26 +179,6 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
                 .addGap(78, 78, 78))
         );
 
-        signupBtn1.setBackground(new java.awt.Color(255, 255, 255));
-        signupBtn1.setFont(new java.awt.Font("Swis721 Ex BT", 1, 14)); // NOI18N
-        signupBtn1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        signupBtn1.setBorderPainted(false);
-        signupBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signupBtn1ActionPerformed(evt);
-            }
-        });
-
-        signupBtn3.setFont(new java.awt.Font("Swis721 Ex BT", 1, 14)); // NOI18N
-        signupBtn3.setText("Profile");
-        signupBtn3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        signupBtn3.setBorderPainted(false);
-        signupBtn3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signupBtn3ActionPerformed(evt);
-            }
-        });
-
         Search.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Search.setText("Search:");
 
@@ -216,11 +204,7 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
                         .addComponent(Search)
                         .addGap(18, 18, 18)
                         .addComponent(SearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(signupBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(signupBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,10 +213,8 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(signupBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Search)
-                        .addComponent(SearchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(signupBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SearchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -253,17 +235,9 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void signupBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signupBtn1ActionPerformed
-
     private void LogoffBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoffBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LogoffBtnActionPerformed
-
-    private void signupBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtn3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_signupBtn3ActionPerformed
 
     private void SearchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextActionPerformed
         // TODO add your handling code here:
@@ -320,8 +294,6 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
     private java.awt.Label label3;
     private java.awt.Label label4;
     private javax.swing.JButton requestBtn;
-    private javax.swing.JButton signupBtn1;
-    private javax.swing.JButton signupBtn3;
     private javax.swing.JButton viewBtn;
     // End of variables declaration//GEN-END:variables
 

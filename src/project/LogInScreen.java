@@ -29,16 +29,19 @@ public class LogInScreen extends javax.swing.JPanel {
     public CodeExchangeUserScreen userscreen = new CodeExchangeUserScreen();
     public CodeExchangeCoderScreen coderscreen = new CodeExchangeCoderScreen();
     public CodeExchangeDisplay display;
-    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    
+    CodeExchangeDisplay maindisplay;
+    java.awt.Window dialog ;
    // public CodeExchangeCoderCanvas codercanvas;
 
     /**
      * Creates new form NewJPanel
      * @param database
      */
-    public LogInScreen(CodeExchangeDataBase database) {
+    public LogInScreen(CodeExchangeDataBase database, java.awt.Window dialog ) {
        
         //this.codercanvas = new CodeExchangeCoderCanvas();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         int w = this.getSize().width;
         int h = this.getSize().height;
         int x = (dim.width - w) / 2;
@@ -46,12 +49,15 @@ public class LogInScreen extends javax.swing.JPanel {
         this.setLocation(x, y);
         initComponents();
         this.database = database;
+        this.dialog = dialog;
     }
 
     LogInScreen() {
        
     
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -198,11 +204,13 @@ public class LogInScreen extends javax.swing.JPanel {
         findAccount();
         if (accountTypeIndex == 0) {
                if(coder.getPassword().equals(String.valueOf(passwordField.getPassword()))){
+                   closeMainWindow();
                    System.out.println("Login success!");
                    //calldisplay
                    //remove window
                    //codercanvas.display(coder);
                    coderscreen.setVisible(true);
+                   
                }else{ 
                    System.out.println("Login fail!");
                    //calldisplay
@@ -210,14 +218,11 @@ public class LogInScreen extends javax.swing.JPanel {
                }
         } else {
                 if(user.getPassword().equals(String.valueOf(passwordField.getPassword()))){
-                    try {
-                        display = new CodeExchangeDisplay();
-                    } catch (IOException ex) {
-                        Logger.getLogger(LogInScreen.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    closeMainWindow();
                    System.out.println("Login success!");
                    userscreen.setVisible(true);
                    ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
+                   
                    //usercanvas.display(user);
                }else{ 
                    System.out.println("Login fail!");
@@ -269,5 +274,9 @@ public class LogInScreen extends javax.swing.JPanel {
             }
         }
 
+    }
+
+    private void closeMainWindow() {
+        dialog.dispose();
     }
 }

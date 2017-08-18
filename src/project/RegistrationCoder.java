@@ -28,14 +28,15 @@ public class RegistrationCoder extends javax.swing.JPanel {
      * Creates new form NewJPanel
      */
     public RegistrationCoder() {
+        
+        
+        initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
          int w = this.getSize().width;
         int h = this.getSize().height;
         int x = (dim.width - w) / 2;
         int y = (dim.height - h) / 2;
         this.setLocation(x, y);
-        
-        initComponents();
     }
 
     /**

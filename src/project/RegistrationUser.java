@@ -31,6 +31,8 @@ public class RegistrationUser extends javax.swing.JPanel {
      * Creates new form NewJPanel
      */
     public RegistrationUser() {
+        initComponents();
+        
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
          int w = this.getSize().width;
         int h = this.getSize().height;
@@ -38,7 +40,7 @@ public class RegistrationUser extends javax.swing.JPanel {
         int y = (dim.height - h) / 2;
         this.setLocation(x, y);
         
-        initComponents();
+        
     }
 
     /**
