@@ -20,7 +20,7 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
     public CodeExchangeViewAllProjectsForm() {
         initComponents();
        
-        containerPanel.add(panelVariable);
+       containerScrPane.add(panelVariable);
         panelVariable.setVisible(true);
     }
 

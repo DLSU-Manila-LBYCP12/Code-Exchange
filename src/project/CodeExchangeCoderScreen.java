@@ -20,7 +20,7 @@ import project.RegistrationUser;
 public class CodeExchangeCoderScreen extends javax.swing.JFrame {
     
     public SubmitProjectForm project = new SubmitProjectForm();
-    
+    public CodeExchangeViewAllProjectsForm projectsForm = new CodeExchangeViewAllProjectsForm();
     /**
      * Creates new form NewJFrame
      */
@@ -240,7 +240,7 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
 
     private void viewRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRequestButtonActionPerformed
         System.out.println("Displaying: New Request");
-        
+        projectsForm.setVisible(true);
     }//GEN-LAST:event_viewRequestButtonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
