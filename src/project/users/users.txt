@@ -12,3 +12,10 @@ lul
 all
 cobalt
 end
+A
+A
+A
+2
+A
+AA
+end

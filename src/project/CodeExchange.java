@@ -32,8 +32,9 @@ public class CodeExchange extends Program {
     Color ClrBack = Color.blue;
     Color ClrText = Color.white;
     
+    Boolean checkProfile=false;
+    
     CodeExchangeLogInScreenCanvas canvas = new CodeExchangeLogInScreenCanvas();
-    CodeExchangeSignUpScreenCanvas signup = new CodeExchangeSignUpScreenCanvas();
     
         public static void main(String[] args) {
             new CodeExchange().start(args);
@@ -119,6 +120,7 @@ public class CodeExchange extends Program {
             if(e.getActionCommand().equals("Log in")){
                 System.out.println("Displaying: Login screen");
             } 
+            
             if (e.getActionCommand().equals("Sign up")) {
                 System.out.println("Displaying: Signup screen");
                 String[] options = new String[]{"User", "Coder", "Cancel"};
@@ -146,7 +148,7 @@ public class CodeExchange extends Program {
             Label.setBackground(ClrBack);
             Label.setForeground(ClrText);
             
-             Login = new JButton("Log in");
+            Login = new JButton("Log in");
             Login.setFont(new Font("Calibri", Font.PLAIN, 24));
             Login.setBackground(ClrBack);
             Login.setForeground(ClrText);
@@ -166,7 +168,7 @@ public class CodeExchange extends Program {
             addActionListeners();
             canvas.showMessage("This is a test message.");
          }
-
+    
     private void registrationUser() {
         JFrame reg = new JFrame("Register");
         
