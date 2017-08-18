@@ -70,7 +70,7 @@ public class LogInScreen extends javax.swing.JPanel {
         nameField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
         submitBtn = new javax.swing.JButton();
-        cancelBtn = new javax.swing.JButton();
+        cancel = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         accountType = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -87,10 +87,10 @@ public class LogInScreen extends javax.swing.JPanel {
             }
         });
 
-        cancelBtn.setText("Cancel");
-        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+        cancel.setText("Cancel");
+        cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelBtnActionPerformed(evt);
+                cancelActionPerformed(evt);
             }
         });
 
@@ -125,7 +125,7 @@ public class LogInScreen extends javax.swing.JPanel {
                         .addGap(119, 119, 119)
                         .addComponent(submitBtn)
                         .addGap(73, 73, 73)
-                        .addComponent(cancelBtn)))
+                        .addComponent(cancel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -147,7 +147,7 @@ public class LogInScreen extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitBtn)
-                    .addComponent(cancelBtn))
+                    .addComponent(cancel))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -187,10 +187,11 @@ public class LogInScreen extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        this.setVisible(false);
-         SwingUtilities.getWindowAncestor(this).dispose();
-    }//GEN-LAST:event_cancelBtnActionPerformed
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        
+        java.awt.Window dialog = SwingUtilities.windowForComponent(cancel);
+        dialog.dispose();
+    }//GEN-LAST:event_cancelActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
@@ -236,7 +237,7 @@ public class LogInScreen extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> accountType;
-    private javax.swing.JButton cancelBtn;
+    private javax.swing.JButton cancel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;

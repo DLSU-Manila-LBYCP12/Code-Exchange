@@ -54,7 +54,7 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         label4 = new java.awt.Label();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CodeExhange by Rivera, Lee, Minguez");
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -176,29 +176,28 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         System.out.println("Displaying: Login screen");
-        JFrame log = new JFrame("LogIn");
-
-        log.setVisible(true);
-        log.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        JFrame login = new JFrame("LogIn");
+        login.setVisible(true);
+        login.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         LogInScreen newForm = new LogInScreen(database);
-        log.setSize(500, 350);
-        log.setLocation(WIDTH, WIDTH);
+        login.setSize(500, 350);
+        login.setLocation(WIDTH, WIDTH);
         newForm.setVisible(true);
-        log.add(newForm);
+        login.add(newForm);
 
         
-        int w = log.getSize().width;
-        int h = log.getSize().height;
+        int w = login.getSize().width;
+        int h = login.getSize().height;
         int x = (dim.width - w) / 2;
         int y = (dim.height - h) / 2;
 
        
-        log.setLocation(x, y);
+        login.setLocation(x, y);
 
         Logged = true;
         //UpdateScreen();
         Logged = true;
-        UpdateScreen();
+//        UpdateScreen();
     }//GEN-LAST:event_loginBtnActionPerformed
     
     private void signupBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBtnActionPerformed
@@ -263,7 +262,6 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
 
     private void registrationUser() {
         JFrame reg = new JFrame("Register");
-
         reg.setVisible(true);
         reg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         RegistrationUser newForm = new RegistrationUser();
