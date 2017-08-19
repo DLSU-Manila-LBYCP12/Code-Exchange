@@ -50,21 +50,21 @@ public class CodeExchangeDataBase {
         }
     }
 
-    public ArrayList<String> getNames() {
+    public MyLinkedList<String> getNames() {
         names = new MyList<>();
-        ArrayList<String> namesArrayList = new ArrayList<>();
+        MyLinkedList<String> namesList = new MyLinkedList<>();
 
         for (int i = 1; i <= users.size(); i++) {
-            names.add("User: " + users.get(i).getName());
-            namesArrayList.add("User: " + users.get(i).getName());
+            names.add(users.get(i).getName());
+            namesList.add(users.get(i).getName());
         }
         System.out.println("Coders");
         for (int i = 1; i <= coders.size(); i++) {
-            names.add("Coder: " + coders.get(i).getName());
-            namesArrayList.add("User: " + users.get(i).getName());
+            names.add(coders.get(i).getName());
+            namesList.add(users.get(i).getName());
         }
 
-        return namesArrayList;
+        return namesList;
     }
 
     public Integer[][] getInteractions() throws FileNotFoundException, IOException {

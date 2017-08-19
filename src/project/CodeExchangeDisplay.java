@@ -56,6 +56,7 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         label3 = new java.awt.Label();
         label4 = new java.awt.Label();
         jLabel3 = new javax.swing.JLabel();
+        stats = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CodeExhange by Rivera, Lee, Minguez");
@@ -110,6 +111,13 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Register Sans BTN", 1, 36)); // NOI18N
         jLabel3.setText("Do you want to Log in or Sign up?");
 
+        stats.setText("Stats");
+        stats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -131,13 +139,20 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
                                 .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(41, 41, 41)))
-                .addGap(0, 126, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(stats)
+                .addGap(25, 25, 25))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(label3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(label3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(stats)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -241,6 +256,21 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_signupBtnActionPerformed
 
+    private void statsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsActionPerformed
+
+        // TODO add your handling code here:
+        CodeExchangeNetworkGraph graph = null;
+        try {
+            graph = new CodeExchangeNetworkGraph(database);
+        } catch (IOException ex) {
+            Logger.getLogger(CodeExchangeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        graph.start();
+        
+        
+        
+    }//GEN-LAST:event_statsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -325,6 +355,7 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     private java.awt.Label label4;
     private javax.swing.JButton loginBtn;
     private javax.swing.JButton signupBtn;
+    private javax.swing.JButton stats;
     // End of variables declaration//GEN-END:variables
 
     private void UpdateScreen() {

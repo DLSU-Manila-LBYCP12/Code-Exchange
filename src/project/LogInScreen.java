@@ -40,7 +40,7 @@ public class LogInScreen extends javax.swing.JPanel {
      * @param database
      * @param dialog
      */
-    public LogInScreen(CodeExchangeDataBase database, java.awt.Window dialog) {
+    public LogInScreen(CodeExchangeDataBase database, java.awt.Window dialog) throws IOException {
 
         //this.codercanvas = new CodeExchangeCoderCanvas();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -52,6 +52,7 @@ public class LogInScreen extends javax.swing.JPanel {
         initComponents();
         this.database = database;
         this.dialog = dialog;
+        this.database.updateDataBase();
     }
 
     LogInScreen() {

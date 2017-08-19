@@ -21,11 +21,7 @@ CodeExchangeUserProfile profile;
      * Creates new form CodeExchangeProjectPanelForm
      * @param request
      */
-    public CodeExchangeUserProjectPanelForm(CodeExchangeRequest request) {
-        initComponents();
-        this.request = request;
-        setLabels(request);
-    }
+    
 
     CodeExchangeUserProjectPanelForm(CodeExchangeRequest request, CodeExchangeUserProfile profile) {
         initComponents();

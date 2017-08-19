@@ -22,7 +22,7 @@ import ph.edu.dlsu.EMI.myinterface.List;
 public class MyList<E> implements List<E>{
 
      /// private data fields
-     private final int MAX_LIST = 10;     // max length of list
+     private final int MAX_LIST = 100;     // max length of list
      private E[] items;                     // array of list items
      private int NumItems;                  // current size of list
 

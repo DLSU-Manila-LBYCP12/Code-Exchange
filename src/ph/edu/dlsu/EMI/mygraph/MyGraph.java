@@ -16,6 +16,7 @@ import acm.util.RandomGenerator;
 import java.awt.*;
 import java.util.*;
 import javax.swing.JFrame;
+import ph.edu.dlsu.EMI.mylinkedlist.MyLinkedList;
 import ph.edu.dlsu.EMI.myqueue.MyQueue;
 
 public class MyGraph implements ph.edu.dlsu.EMI.myinterface.Graph {
@@ -61,6 +62,10 @@ public class MyGraph implements ph.edu.dlsu.EMI.myinterface.Graph {
         this.weights = weights;
     }
     public MyGraph(ArrayList<String> nodes, ArrayList<ArrayList<String>> adjacency) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public MyGraph(MyLinkedList<String> names, MyLinkedList<MyLinkedList<String>> adjacency) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
