@@ -35,7 +35,8 @@ public class CodeExchangeNetworkGraph extends GraphicsProgram {
         getNames();
         getWeights();
         getAdjacency();
-        graph = new MyGraph(names, adjacency);
+        graph = new MyGraph(names,weights,this.getGCanvas());
+        
     }
 
     public void getWeights() throws FileNotFoundException, IOException {
@@ -66,7 +67,6 @@ public class CodeExchangeNetworkGraph extends GraphicsProgram {
                     StringTokenizer token = new StringTokenizer(raw.get(j), "|");
                     String coder =token.nextToken();
                     String user = token.nextToken();
-                    System.out.println(coder+"|"+user);
                     if (coder.equals(names.get(k)) && user.equals(names.get(i))) {
                         counter++;
                     }
@@ -110,4 +110,8 @@ public class CodeExchangeNetworkGraph extends GraphicsProgram {
         println("mave");
     }
 
+    
+    
+    ///
+   
 }

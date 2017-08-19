@@ -203,7 +203,12 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
         JFrame log = new JFrame("LogIn");
         log.setVisible(true);
         log.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        LogInScreen newForm = new LogInScreen(database,  dialog);
+        LogInScreen newForm = null;
+        try {
+            newForm = new LogInScreen(database,  dialog);
+        } catch (IOException ex) {
+            Logger.getLogger(CodeExchangeDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        }
         log.setSize(500, 350);
         log.setLocation(WIDTH, WIDTH);
         newForm.setVisible(true);
@@ -259,15 +264,18 @@ public class CodeExchangeDisplay extends javax.swing.JFrame {
     private void statsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsActionPerformed
 
         // TODO add your handling code here:
+        JFrame frame = new JFrame("Network Graph Visualization");
+        frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         CodeExchangeNetworkGraph graph = null;
         try {
             graph = new CodeExchangeNetworkGraph(database);
         } catch (IOException ex) {
             Logger.getLogger(CodeExchangeDisplay.class.getName()).log(Level.SEVERE, null, ex);
         }
-        graph.start();
-        
-        
+//        graph.start();
+        frame.setSize(700,500);
+        frame.setVisible(true);
+        frame.add(graph.getContentPane());
         
     }//GEN-LAST:event_statsActionPerformed
 
