@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  */
 public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
 
-    CodeExchangeRequestsDatabase database;
+    CodeExchangeSubmissionDatabase database;
     CodeExchangeUserProfile profile;
     /**
      * Creates new form CodeExchangeViewAllProjectsForm
@@ -37,7 +37,7 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
     }
 
     public void init() throws IOException{
-        database = new CodeExchangeRequestsDatabase();
+        database = new CodeExchangeSubmissionDatabase();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         int w = this.getSize().width;
         int h = this.getSize().height;
@@ -45,7 +45,7 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
         int y = (dim.height - h) / 2;
         this.setLocation(x, y);
 
-//        panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(1));
+//        panelVariable = new CodeExchangeProjectPanelForm(database.submission.get(1));
 //        panelVariable.setVisible(true);
 //        this.add(panelVariable);
         JPanel panel = new JPanel();
@@ -53,13 +53,17 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
  
         panel.setVisible(true);
         panel.setSize(500, 500);
-            for(int i=1;i<database.requests.size()+1;i++){
-                if(database.requests.get(i).getSubmitter().equals(profile.getName())){
-                    CodeExchangeUserProjectPanelForm panelVariable = new CodeExchangeUserProjectPanelForm(database.requests.get(i),profile);
-                    System.out.println(database.requests.get(i).getFeatures());
+            for(int i=1;i<database.submission.size()+2;i++){
+                CodeExchangeSubmission temp=database.submission.deQueue();
+                System.out.println(temp.getRequester()+temp.getSubmitter());
+                System.out.println(profile.getName());
+                if((temp.getRequester()).equals(profile.getName())){
+                    CodeExchangeSubmissionPanelForm panelVariable = new CodeExchangeSubmissionPanelForm(temp);
+                    System.out.println(database.submission.deQueue().getFeatures());
                     panelVariable.setVisible(true);
                     panel.add(panelVariable);
                     System.out.println("added");
+                    
                 }
             }
 
@@ -84,7 +88,7 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 51));
-        jLabel2.setText("Project List");
+        jLabel2.setText("Submission List");
 
         containerScrPane.setViewportBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         containerScrPane.setMinimumSize(new java.awt.Dimension(700, 500));
@@ -95,8 +99,8 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
             .addComponent(containerScrPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );

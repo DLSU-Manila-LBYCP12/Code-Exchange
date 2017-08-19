@@ -25,6 +25,7 @@ public class SubmitProjectForm extends javax.swing.JFrame {
      private String n = newLine;
      private String title;
      private CodeExchangeCoderProfile profile;
+     private String requester;
     /**
      * Creates new form SubmitProjectForm
      * @param projectName
@@ -38,6 +39,7 @@ public class SubmitProjectForm extends javax.swing.JFrame {
    
     SubmitProjectForm(CodeExchangeRequest request, CodeExchangeCoderProfile profile) {
         initComponents();
+        this.requester=request.getSubmitter();
         this.profile = profile;
         this.title = request.getTitle();
         }
@@ -264,7 +266,7 @@ public class SubmitProjectForm extends javax.swing.JFrame {
 
     private void submitProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitProjectActionPerformed
         // TODO add your handling code here:
-        submissionForm = profile.getName() +n+ title +n+languageTextArea.getText() + n + featuresTextArea.getText() + n + screenshotTextArea.getText() + n + addedTextArea.getText() + n + codeTextArea.getText() + n + "end";
+        submissionForm =profile.getName()+n+requester+n+languageTextArea.getText() +n+"end language"+ n + featuresTextArea.getText()+n+"end features" + n + screenshotTextArea.getText()+n+"end shots" + n + addedTextArea.getText() +n+"end added features"+ n + codeTextArea.getText() +n+"end code"+ n + "end";
         String path = System.getProperty("user.dir") + "\\src\\project\\projectlist\\projectlist.txt";
         FileWriter writer;
         try {

@@ -35,15 +35,3 @@ Another test
 Another test
 300
 end
-elcie3
-test5
-start description
-test5
-end description
-start features
-test5
-end features
-test5
-test5
-test5
-end

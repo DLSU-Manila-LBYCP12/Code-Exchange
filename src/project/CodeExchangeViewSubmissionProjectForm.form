@@ -25,8 +25,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jLabel1" min="-2" pref="171" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="250" max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="219" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
           </Group>
           <Component id="containerScrPane" alignment="1" max="32767" attributes="0"/>
@@ -64,7 +64,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="99" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Project List"/>
+        <Property name="text" type="java.lang.String" value="Submission List"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="containerScrPane">

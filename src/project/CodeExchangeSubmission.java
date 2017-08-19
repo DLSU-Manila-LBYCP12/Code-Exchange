@@ -11,14 +11,14 @@ import ph.edu.dlsu.EMI.myqueue.*;
  *
  * @author Rivera
  */
-public class CodeExchangeRequest {
+public class CodeExchangeSubmission {
     private String submitter;
-    private String title;
-    private String description;
     private String features;
     private String language;
-    private String theme;
-    private int payment;
+    private String screenshot;
+    private String code;
+    private String addfeatures;
+    private String requester;
     
     /**
      * @return the submitter
@@ -33,35 +33,16 @@ public class CodeExchangeRequest {
     public void setSubmitter(String submitter) {
         this.submitter = submitter;
     }
-
-    /**
-     * @return the title
-     */
-    public String getTitle() {
-        return title;
+     public String getRequester() {
+        return requester;
     }
 
     /**
-     * @param title the title to set
+     * @param submitter the submitter to set
      */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setRequester(String requester) {
+        this.requester = requester;
     }
-
-    /**
-     * @return the description
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * @param description the description to set
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     /**
      * @return the features
      */
@@ -74,6 +55,17 @@ public class CodeExchangeRequest {
      */
     public void setFeatures(String features) {
         this.features = features;
+    }
+    
+    public String getAddFeatures() {
+        return addfeatures;
+    }
+
+    /**
+     * @param features the features to set
+     */
+    public void setAddFeatures(String addfeatures) {
+        this.addfeatures = addfeatures;
     }
 
     /**
@@ -89,38 +81,21 @@ public class CodeExchangeRequest {
     public void setLanguage(String language) {
         this.language = language;
     }
-
-    /**
-     * @return the theme
-     */
-    public String getTheme() {
-        return theme;
+    public String getScreenshot() {
+        return screenshot;
     }
 
-    /**
-     * @param theme the theme to set
-     */
-    public void setTheme(String theme) {
-        this.theme = theme;
+    public void setScreenshot(String screenshot) {
+        this.screenshot = screenshot;
+    }
+    public String getCode() {
+        return code;
     }
 
     /**
-     * @return the payment
+     * @param submitter the submitter to set
      */
-    public int getPayment() {
-        return payment;
+    public void setCode(String code) {
+        this.code = code;
     }
-
-    /**
-     * @param payment the payment to set
-     */
-    public void setPayment(int payment) {
-        this.payment = payment;
-    }
-    
-    public void addSubmission(){
-        
-    }
-    
-    
 }

@@ -16,7 +16,7 @@ public class MyQueue<Item> implements Queue<Item>{
     //create by Maverick C. Rivera for the Subject LBYCP12
     //for the purpose of the program only, there is no return for dequeue 
     //because dequed data is not needed anywhere else
-    public static final int MAX_SIZE =5;
+    public static final int MAX_SIZE =10;
     private int numItems=0;
     private Item[] data ;
     private int qRear;

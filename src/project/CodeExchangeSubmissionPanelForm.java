@@ -9,38 +9,39 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Student
+ * @author inicca
  */
 public class CodeExchangeSubmissionPanelForm extends javax.swing.JPanel {
-CodeExchangeRequest request;
+CodeExchangeSubmission submission;
 CodeExchangeCoderProfile profile;
+String requester;
     /**
      * Creates new form CodeExchangeProjectPanelForm
      * @param request
      */
-    public CodeExchangeSubmissionPanelForm(CodeExchangeRequest request) {
+    public CodeExchangeSubmissionPanelForm(CodeExchangeSubmission submission) {
         initComponents();
-        this.request = request;
-        setLabels(request);
+        this.submission = submission;
+        setLabels(submission);
     }
 
     CodeExchangeSubmissionPanelForm(CodeExchangeRequest request, CodeExchangeCoderProfile profile) {
         initComponents();
+        this.requester=request.getSubmitter();
         this.profile = profile;
-        this.request = request;
-        setLabels(request);
+        this.submission = submission;
+        setLabels(submission);
     }
 
   
         
-    public void setLabels(CodeExchangeRequest request){
-        nameLabel.setText(request.getTitle());
-        submitterLabel.setText(request.getSubmitter());
-        descriptionLabel.setText(request.getDescription());
-        featureLabel.setText(request.getFeatures());
-        colorLabel.setText(request.getTheme());
-        languageLabel.setText(request.getLanguage());
-        paymentLabel.setText(request.getPayment()+"");
+    public void setLabels(CodeExchangeSubmission submission){
+        submitterLabel.setText(submission.getSubmitter());
+        featuresLabel.setText(submission.getFeatures());
+        addfeatureslabel.setText(submission.getAddFeatures());
+        screenshotLabel.setText(submission.getScreenshot());
+        languageLabel.setText(submission.getLanguage());
+        codeLabel.setText(submission.getCode()+"");
     }
     
     
@@ -56,72 +57,65 @@ CodeExchangeCoderProfile profile;
     private void initComponents() {
 
         label1 = new java.awt.Label();
-        projectName = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        nameLabel = new java.awt.Label();
         languageLabel = new java.awt.Label();
-        colorLabel = new java.awt.Label();
-        paymentLabel = new java.awt.Label();
         jLabel6 = new javax.swing.JLabel();
         submitterLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        descriptionLabel = new javax.swing.JTextArea();
+        featuresLabel = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        featureLabel = new javax.swing.JTextArea();
-        doThisButton = new javax.swing.JButton();
+        screenshotLabel = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        codeLabel = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        addfeatureslabel = new javax.swing.JTextArea();
+        jLabel7 = new javax.swing.JLabel();
 
         label1.setText("label1");
 
-        projectName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        projectName.setText("Project Name: ");
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Description: ");
+        jLabel1.setText("Screenshots:");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Additional Features: ");
+        jLabel2.setText("Features Done: ");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Language Required:");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Color Theme");
+        jLabel3.setText("Language Used:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Payment");
-
-        nameLabel.setText("label1");
+        jLabel5.setText("Actual Code:");
 
         languageLabel.setText("label2");
-
-        colorLabel.setText("label2");
-
-        paymentLabel.setText("label2");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Submitted by: ");
 
         submitterLabel.setText("jLabel7");
 
-        descriptionLabel.setColumns(20);
-        descriptionLabel.setRows(5);
-        jScrollPane1.setViewportView(descriptionLabel);
+        featuresLabel.setColumns(20);
+        featuresLabel.setRows(5);
+        jScrollPane1.setViewportView(featuresLabel);
 
-        featureLabel.setEditable(false);
-        featureLabel.setColumns(20);
-        featureLabel.setRows(5);
-        jScrollPane2.setViewportView(featureLabel);
+        screenshotLabel.setEditable(false);
+        screenshotLabel.setColumns(20);
+        screenshotLabel.setRows(5);
+        jScrollPane2.setViewportView(screenshotLabel);
 
-        doThisButton.setText("Do this!");
-        doThisButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doThisButtonActionPerformed(evt);
-            }
-        });
+        codeLabel.setEditable(false);
+        codeLabel.setColumns(20);
+        codeLabel.setRows(5);
+        jScrollPane3.setViewportView(codeLabel);
+
+        addfeatureslabel.setEditable(false);
+        addfeatureslabel.setColumns(20);
+        addfeatureslabel.setRows(5);
+        jScrollPane4.setViewportView(addfeatureslabel);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("Additional Features:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -132,104 +126,84 @@ CodeExchangeCoderProfile profile;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel7))
+                        .addGap(78, 78, 78)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addGap(81, 81, 81)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(paymentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(colorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(projectName)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(submitterLabel)))
-                        .addGap(81, 81, 81)
-                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1)
+                                .addGap(71, 71, 71))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
+                                .addGap(63, 63, 63))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jScrollPane1))))
-                .addGap(29, 29, 29)
-                .addComponent(doThisButton)
-                .addGap(27, 27, 27))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(83, 83, 83)
+                                .addComponent(submitterLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5))
+                                .addGap(71, 71, 71)
+                                .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitterLabel)
+                    .addComponent(jLabel6))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(projectName)
-                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(submitterLabel)))
-                    .addComponent(doThisButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(languageLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(colorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(paymentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void doThisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doThisButtonActionPerformed
-        // TODO add your handling code here:
-        
-        SubmitProjectForm form = new SubmitProjectForm(request,profile);
-        form.setVisible(true);
-    }//GEN-LAST:event_doThisButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Label colorLabel;
-    private javax.swing.JTextArea descriptionLabel;
-    private javax.swing.JButton doThisButton;
-    private javax.swing.JTextArea featureLabel;
+    private javax.swing.JTextArea addfeatureslabel;
+    private javax.swing.JTextArea codeLabel;
+    private javax.swing.JTextArea featuresLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private java.awt.Label label1;
     private java.awt.Label languageLabel;
-    private java.awt.Label nameLabel;
-    private java.awt.Label paymentLabel;
-    private javax.swing.JLabel projectName;
+    private javax.swing.JTextArea screenshotLabel;
     private javax.swing.JLabel submitterLabel;
     // End of variables declaration//GEN-END:variables
 }
