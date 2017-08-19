@@ -31,7 +31,7 @@ public class CodeExchangeSubmissionDatabase {
         String temp;
 
         temp = br.readLine();
-        System.out.println(temp);
+//        System.out.println(temp);
         while (temp != null) {
             CodeExchangeSubmission tempSubmission = new CodeExchangeSubmission();
             tempSubmission.setSubmitter(temp);
@@ -50,8 +50,8 @@ public class CodeExchangeSubmissionDatabase {
                 feats += temp + System.lineSeparator();
                 temp = br.readLine();
             } 
-            temp=br.readLine();
             tempSubmission.setFeatures(feats);
+            temp=br.readLine();
             String shots = "";
             while (!temp.equals("end shots")) {
                 shots += temp + System.lineSeparator();
@@ -64,8 +64,9 @@ public class CodeExchangeSubmissionDatabase {
                 addfeats += temp + System.lineSeparator();
                 temp = br.readLine();
             }
-            temp=br.readLine();            
             tempSubmission.setAddFeatures(addfeats);
+            temp=br.readLine();            
+            
             String code="";
             while (!temp.equals("end code")) {
                 code += temp + System.lineSeparator();
@@ -73,12 +74,12 @@ public class CodeExchangeSubmissionDatabase {
             }   
             tempSubmission.setCode(code);
             
-            temp=br.readLine();
-            while (!temp.equals("end")) {
-                temp = br.readLine();
-            } 
+            
+            
+            temp=br.readLine(); 
             temp=br.readLine();
             submission.enQueue(tempSubmission);
+            System.out.println("Last added: "+tempSubmission.getTitle()+temp);
         }
     }
 

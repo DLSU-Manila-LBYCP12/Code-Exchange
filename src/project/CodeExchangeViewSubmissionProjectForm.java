@@ -25,11 +25,11 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
     String title;
     /**
      * Creates new form CodeExchangeViewAllProjectsForm
+     * @param profile
+     * @param title
+     * @throws java.io.IOException
      */
-    public CodeExchangeViewSubmissionProjectForm() throws IOException {
-        initComponents();
-        init();
-    }
+  
 
     public CodeExchangeViewSubmissionProjectForm(CodeExchangeUserProfile profile,String title) throws IOException {
         initComponents();
@@ -47,19 +47,18 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
         int y = (dim.height - h) / 2;
         this.setLocation(x, y);
 
-//        panelVariable = new CodeExchangeProjectPanelForm(database.submission.get(1));
-//        panelVariable.setVisible(true);
-//        this.add(panelVariable);
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
  
         panel.setVisible(true);
         panel.setSize(500, 500);
-            for(int i=1;i<database.submission.size()+1;i++){
+            while(!database.submission.isEmpty()){
                 CodeExchangeSubmission temp = database.submission.deQueue();
+                System.out.println(database.submission.isEmpty());
                 System.out.println(temp.getTitle());
                 System.out.println(title);
-                if((temp.getRequester()).equals(profile.getName()) && temp.getTitle().equals(title)){
+                String requester = temp.getRequester();
+                if(requester.equals(profile.getName()) && temp.getTitle().equals(title)){
                     CodeExchangeSubmissionPanelForm panelVariable = new CodeExchangeSubmissionPanelForm(temp);
                     panelVariable.setVisible(true);
                     panel.add(panelVariable);

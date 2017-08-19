@@ -40,6 +40,7 @@ public class MyQueue<Item> implements Queue<Item>{
         for(int i=0;i<numItems;i++){
             data[i]=data[i+1];
         }
+        System.out.println("Dequeued");
         return temp;
        }else{
            System.out.println("List Empty Exception!");
