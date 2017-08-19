@@ -12,7 +12,7 @@ public class MyStack<E>{
 
      private final int MAX_LIST =1000000;     
      private E[] items;                     
-     private int NumItems;                 
+     private int numItems;                 
      
      @SuppressWarnings("unchecked")
      public MyStack(){
@@ -21,30 +21,42 @@ public class MyStack<E>{
      
      public void createList(){
            items = (E[])new Object[MAX_LIST]; 
-           NumItems = 0;
+           numItems = 0;
      }
 
      public void push(E item) {
-         NumItems++; 
-         items[NumItems-1]=item;
+         numItems++; 
+         items[numItems-1]=item;
      } 
 
      public E pop(){
         E result;
-        result = items[NumItems-1];
-        NumItems--;
+        result = items[numItems-1];
+        numItems--;
         return result;
     } 
 
     public boolean isEmpty(){
-           return NumItems == 0;          
+           return numItems == 0;          
     }
     public int size(){
-        return NumItems;
+        return numItems;
     }
     public E top(){
         E item;
-        item=items[NumItems-1];
+        item=items[numItems-1];
         return item;
     } 
+    public E get(int index){
+        E item;
+        item = items[index-1];
+         return item;
+    }
+    public void remove(int index){
+        for(int i =index -1 ; i<numItems - 1;i++){
+            items[i]=items[i+1];
+            
+        }
+        numItems--;
+    }
 }

@@ -56,10 +56,10 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
         panel.setVisible(true);
         panel.setSize(500, 500);
             for(int i=1;i<database.submission.size()+1;i++){
-                CodeExchangeSubmission temp=database.submission.deQueue();
+                CodeExchangeSubmission temp = database.submission.deQueue();
                 System.out.println(temp.getTitle());
                 System.out.println(title);
-                if((temp.getRequester()).equals(profile.getName())&&temp.getTitle().equals(title)){
+                if((temp.getRequester()).equals(profile.getName()) && temp.getTitle().equals(title)){
                     CodeExchangeSubmissionPanelForm panelVariable = new CodeExchangeSubmissionPanelForm(temp);
                     System.out.println(database.submission.deQueue().getFeatures());
                     panelVariable.setVisible(true);

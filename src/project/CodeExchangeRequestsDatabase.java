@@ -127,7 +127,7 @@ String path = System.getProperty("user.dir") + "\\src\\project\\submittedproject
     public CodeExchangeRequest findByTitle(String title) {
         
     CodeExchangeRequest tempSubmission = null;
-        for(int i =0; i<requests.size();i++){
+        for(int i =1; i<requests.size()+1;i++){
             if(requests.get(i).getTitle().equals(title)){
                 tempSubmission = requests.get(i);
                return tempSubmission;

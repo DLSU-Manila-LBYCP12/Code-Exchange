@@ -20,29 +20,33 @@ import project.RegistrationUser;
  * @author lyle
  */
 public class SubmitProjectForm extends javax.swing.JFrame {
-     private String submissionForm;
-     private String newLine = System.lineSeparator();
-     private String n = newLine;
-     private String title;
-     private CodeExchangeCoderProfile profile;
-     private String requester;
+
+    private String submissionForm;
+    private String newLine = System.lineSeparator();
+    private String n = newLine;
+    private String title;
+    private CodeExchangeCoderProfile profile;
+    private String requester;
+
     /**
      * Creates new form SubmitProjectForm
+     *
      * @param projectName
      */
-   
+
     /**
      * Creates new form SubmitProjectForm
+     *
      * @param request
      * @param projectName
      */
-   
     SubmitProjectForm(CodeExchangeRequest request, CodeExchangeCoderProfile profile) {
         initComponents();
-        this.requester=request.getSubmitter();
+        this.requester = request.getSubmitter();
         this.profile = profile;
         this.title = request.getTitle();
-        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -266,7 +270,7 @@ public class SubmitProjectForm extends javax.swing.JFrame {
 
     private void submitProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitProjectActionPerformed
         // TODO add your handling code here:
-        submissionForm =profile.getName()+n+title+n+requester+n+languageTextArea.getText() +n+"end language"+ n + featuresTextArea.getText()+n+"end features" + n + screenshotTextArea.getText()+n+"end shots" + n + addedTextArea.getText() +n+"end added features"+ n + codeTextArea.getText() +n+"end code"+ n + "end";
+        submissionForm = profile.getName() + n + title + n + requester + n + languageTextArea.getText() + n + "end language" + n + featuresTextArea.getText() + n + "end features" + n + screenshotTextArea.getText() + n + "end shots" + n + addedTextArea.getText() + n + "end added features" + n + codeTextArea.getText() + n + "end code" + n + "end";
         String path = System.getProperty("user.dir") + "\\src\\project\\projectlist\\projectlist.txt";
         FileWriter writer;
         try {
@@ -282,7 +286,7 @@ public class SubmitProjectForm extends javax.swing.JFrame {
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_cancelActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -291,7 +295,6 @@ public class SubmitProjectForm extends javax.swing.JFrame {
         dialog.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea addedTextArea;

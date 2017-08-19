@@ -44,16 +44,7 @@ public class CodeExchangeSubmissionPanelForm extends javax.swing.JPanel {
          userprofile=databaseProfiles.getProfileUser(submission.getRequester());
     }
 
-    CodeExchangeSubmissionPanelForm(CodeExchangeRequest request, CodeExchangeCoderProfile profile) throws IOException {
-        initComponents();
-        this.requester=request.getSubmitter();
-        this.profile = profile;
-        this.submission = submission;
-        setLabels(submission);
-        databaseSubmissions = new CodeExchangeSubmissionDatabase();
-        databaseRequests = new CodeExchangeRequestsDatabase();
-        databaseProfiles = new CodeExchangeDataBase();
-    }
+    
 
   
         
@@ -227,8 +218,10 @@ public class CodeExchangeSubmissionPanelForm extends javax.swing.JPanel {
     private void acceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonActionPerformed
         int choice = JOptionPane.showConfirmDialog(null, "Are you sure?","Confirm",JOptionPane.YES_NO_OPTION);
         if(choice == 0){
+            CodeExchangeCoderProfile tempProfile = databaseProfiles.getProfileCoder(submission.getSubmitter());
+            tempProfile.setEarnings(tempProfile.getEarnings()+ databaseRequests.findByTitle(submission.getTitle()).getPayment());
+            
             try {
-                // TODO add your handling code here:
                 removefromText();
             } catch (IOException ex) {
                 Logger.getLogger(CodeExchangeSubmissionPanelForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -236,19 +229,16 @@ public class CodeExchangeSubmissionPanelForm extends javax.swing.JPanel {
             System.out.println(submission.getTitle());
             try {
                 databaseRequests.removeByTitle(submission.getTitle());
+                databaseProfiles.saveDatabase();
                 System.out.println("Removed in the database succesfully");
             } catch (IOException ex) {
                 Logger.getLogger(CodeExchangeSubmissionPanelForm.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             JOptionPane.showMessageDialog(null, "Accepted this work!");
-            CodeExchangeCoderProfile tempProfile = databaseProfiles.getProfileCoder(submission.getSubmitter());
-            tempProfile.setEarnings(tempProfile.getEarnings()+ databaseRequests.findByTitle(submission.getTitle()).getPayment());
-            try {
-                databaseProfiles.saveDatabase();
-            } catch (IOException ex) {
-                Logger.getLogger(CodeExchangeSubmissionPanelForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
+                
+            
 }else{
             System.out.println("cancelled by the user ");
         }
@@ -263,23 +253,26 @@ public class CodeExchangeSubmissionPanelForm extends javax.swing.JPanel {
         try {
             writer = new FileWriter(path, false);
             print = new PrintWriter(writer);
+            print.println("");
             print.close();
         } catch (IOException ex) {
             Logger.getLogger(RegistrationUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         for(int i=databaseSubmissions.submission.size()-1;i>0;i--){
-            tempSubmission=databaseSubmissions.submission.deQueue();
-            System.out.println(userprofile.getName()+tempSubmission.getRequester());
-            if(!tempSubmission.getRequester().equals(userprofile.getName())&&!tempSubmission.getTitle().equals(submission.getTitle())){
-            writer = new FileWriter(path, true);
-            print = new PrintWriter(writer);
-            print.println(tempSubmission.getSubmitter()+n+tempSubmission.getTitle()+n+tempSubmission.getRequester()+n+tempSubmission.getLanguage()+n+"end language"+ n +tempSubmission.getFeatures()+n+"end features" + n +tempSubmission.getScreenshot()+n+"end shots" + n +tempSubmission.getAddFeatures()+n+"end added features"+ n +tempSubmission.getCode()+n+"end code"+ n + "end");
-            temp.enQueue(tempSubmission);
-            }
-            while(!temp.isEmpty()){
-                databaseSubmissions.submission.enQueue((CodeExchangeSubmission) temp.deQueue());
-            }
             databaseRequests.removeByTitle(submission.getTitle());
+//            tempSubmission=databaseSubmissions.submission.deQueue();
+//            System.out.println(userprofile.getName()+tempSubmission.getRequester());
+//            if(!tempSubmission.getRequester().equals(userprofile.getName())&&!tempSubmission.getTitle().equals(submission.getTitle())){
+//            writer = new FileWriter(path, true);
+//            print = new PrintWriter(writer);
+//            print.println(tempSubmission.getSubmitter()+n+tempSubmission.getTitle()+n+tempSubmission.getRequester()+n+tempSubmission.getLanguage()+n+"end language"+ n +tempSubmission.getFeatures()+n+"end features" + n +tempSubmission.getScreenshot()+n+"end shots" + n +tempSubmission.getAddFeatures()+n+"end added features"+ n +tempSubmission.getCode()+n+"end code"+ n + "end");
+//            temp.enQueue(tempSubmission);
+//            }
+//            while(!temp.isEmpty()){
+//                databaseSubmissions.submission.enQueue((CodeExchangeSubmission) temp.deQueue());
+//            }
+            
+            
             
             
         }
