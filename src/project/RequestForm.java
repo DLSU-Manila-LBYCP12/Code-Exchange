@@ -5,6 +5,9 @@
  */
 package project;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -223,7 +226,7 @@ public class RequestForm extends javax.swing.JFrame {
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
@@ -232,16 +235,31 @@ public class RequestForm extends javax.swing.JFrame {
         String n = System.lineSeparator();
         String submissionForm = "";
         submissionForm = requester + n + projectNameField.getText() + n + "start description" + n + descriptionField.getText() + n + "end description" + n + "start features" + n + featuresField.getText() + n + "end features" + n + languageField.getText() + n + themeField.getText() + n + paymentField.getText() + n + "end";
-        String path = System.getProperty("user.dir") + "\\src\\project\\submittedprojects\\submittedprojects.txt";
+        String path = System.getProperty("user.dir") + "\\src\\project\\requests\\requests.txt";
+        File f = new File(path);
+        FileReader source;
+
+        BufferedReader br;
+        String temp;
         FileWriter writer;
         try {
-            writer = new FileWriter(path, true);
+
+            source = new FileReader(f);
+            br = new BufferedReader(source);
+            temp = br.readLine();
+            br.close();
+            if (temp.equals("")) {
+                writer = new FileWriter(path, false);
+            } else {
+                writer = new FileWriter(path, true);
+            }
             PrintWriter print = new PrintWriter(writer);
             print.println(submissionForm);
             print.close();
         } catch (IOException ex) {
-            Logger.getLogger(RegistrationUser.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RequestForm.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         JOptionPane.showMessageDialog(null, "Request Submitted!");
         this.dispose();
     }//GEN-LAST:event_submitBtnActionPerformed

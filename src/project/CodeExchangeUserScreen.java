@@ -36,7 +36,7 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
          this.name = name;
          profileButton.setText(name);
         database = new CodeExchangeDataBase();
-        this.profile = database.getProfileUser( name); 
+        this.profile = database.getProfileUser(name); 
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         int w = this.getSize().width;
         int h = this.getSize().height;
@@ -242,7 +242,7 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
             Logger.getLogger(CodeExchangeUserScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
         projectsForm.setVisible(true);
-        System.out.println("Displaying: Existing Requests");
+        System.out.println("Displaying: Existing submissions");
     }//GEN-LAST:event_viewBtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

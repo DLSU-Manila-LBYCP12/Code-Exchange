@@ -228,7 +228,7 @@ public class LogInScreen extends javax.swing.JPanel {
                 userscreen.setVisible(true);
                 ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
 
-                //usercanvas.display(user);
+                
             } else {
                 System.out.println("Login fail! User");
                 //calldisplay

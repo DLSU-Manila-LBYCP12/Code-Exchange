@@ -243,12 +243,15 @@ public class CodeExchangeCoderScreen extends javax.swing.JFrame {
 
     private void viewRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRequestButtonActionPerformed
         CodeExchangeViewAllProjectsForm projectsForm ;
+        
         try {
             projectsForm = new CodeExchangeViewAllProjectsForm(profile);
             projectsForm.setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(CodeExchangeCoderScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
+            
+        
         System.out.println("Displaying: New Request");
         
     }//GEN-LAST:event_viewRequestButtonActionPerformed

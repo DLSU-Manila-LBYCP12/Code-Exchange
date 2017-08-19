@@ -24,7 +24,7 @@ public class CodeExchangeSubmissionDatabase {
     }
 
     private void initDatabase() throws IOException {
-        String path = System.getProperty("user.dir") + "\\src\\project\\projectlist\\projectlist.txt";
+        String path = System.getProperty("user.dir") + "\\src\\project\\submitted\\submitted.txt";
         File f = new File(path);
         FileReader source = new FileReader(f);
         BufferedReader br = new BufferedReader(source);
@@ -72,7 +72,7 @@ public class CodeExchangeSubmissionDatabase {
                 temp = br.readLine();
             }   
             tempSubmission.setCode(code);
-            submission.enQueue(tempSubmission);
+            
             temp=br.readLine();
             while (!temp.equals("end")) {
                 temp = br.readLine();

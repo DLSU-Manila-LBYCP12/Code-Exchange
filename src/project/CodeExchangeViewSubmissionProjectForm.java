@@ -61,10 +61,9 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
                 System.out.println(title);
                 if((temp.getRequester()).equals(profile.getName()) && temp.getTitle().equals(title)){
                     CodeExchangeSubmissionPanelForm panelVariable = new CodeExchangeSubmissionPanelForm(temp);
-                    System.out.println(database.submission.deQueue().getFeatures());
                     panelVariable.setVisible(true);
                     panel.add(panelVariable);
-                    System.out.println("added");
+                    System.out.println("added a new form to the submission list");
                     
                 }
             }

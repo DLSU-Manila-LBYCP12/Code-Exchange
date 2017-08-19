@@ -271,7 +271,7 @@ public class SubmitProjectForm extends javax.swing.JFrame {
     private void submitProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitProjectActionPerformed
         // TODO add your handling code here:
         submissionForm = profile.getName() + n + title + n + requester + n + languageTextArea.getText() + n + "end language" + n + featuresTextArea.getText() + n + "end features" + n + screenshotTextArea.getText() + n + "end shots" + n + addedTextArea.getText() + n + "end added features" + n + codeTextArea.getText() + n + "end code" + n + "end";
-        String path = System.getProperty("user.dir") + "\\src\\project\\projectlist\\projectlist.txt";
+        String path = System.getProperty("user.dir") + "\\src\\project\\submitted\\submitted.txt";
         FileWriter writer;
         try {
             writer = new FileWriter(path, true);

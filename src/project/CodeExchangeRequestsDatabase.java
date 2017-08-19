@@ -28,7 +28,7 @@ public class CodeExchangeRequestsDatabase {
     }
 
     private void initDatabase() throws IOException {
-        String path = System.getProperty("user.dir") + "\\src\\project\\submittedprojects\\submittedprojects.txt";
+        String path = System.getProperty("user.dir") + "\\src\\project\\requests\\requests.txt";
         File f = new File(path);
         FileReader source = new FileReader(f);
         BufferedReader br = new BufferedReader(source);
@@ -36,7 +36,7 @@ public class CodeExchangeRequestsDatabase {
 
         temp = br.readLine();
         System.out.println(temp);
-        while (temp!= null) {
+        while (temp!= null && !"".equals(temp)) {
             CodeExchangeRequest tempRequest = new CodeExchangeRequest();
             tempRequest.setSubmitter(temp);
             tempRequest.setTitle(br.readLine());
@@ -101,6 +101,7 @@ public class CodeExchangeRequestsDatabase {
             if (requests.get(i).getTitle().equals(title)) {
                 requests.remove(i);
                 System.out.println("Removed one request");
+                return;
             }
         }
         saveDatabase();
@@ -109,7 +110,7 @@ public class CodeExchangeRequestsDatabase {
     public void saveDatabase() throws IOException {
         String n = System.lineSeparator();
         FileWriter writer;
-String path = System.getProperty("user.dir") + "\\src\\project\\submittedprojects\\submittedprojects.txt";
+String path = System.getProperty("user.dir") + "\\src\\project\\submitted\\submitted.txt";
         writer = new FileWriter(path,false);
         PrintWriter print = new PrintWriter(writer);
 

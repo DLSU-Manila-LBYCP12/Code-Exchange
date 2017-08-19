@@ -24,11 +24,9 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
     CodeExchangeCoderProfile profile;
     /**
      * Creates new form CodeExchangeViewAllProjectsForm
+     * @param profile
      */
-    public CodeExchangeViewAllProjectsForm() throws IOException {
-        initComponents();
-        init();
-    }
+    
 
     public CodeExchangeViewAllProjectsForm(CodeExchangeCoderProfile profile) throws IOException {
         initComponents();
@@ -55,7 +53,7 @@ public class CodeExchangeViewAllProjectsForm extends javax.swing.JFrame {
         panel.setSize(500, 500);
             for(int i=1;i<database.requests.size()+1;i++){
             CodeExchangeProjectPanelForm panelVariable = new CodeExchangeProjectPanelForm(database.requests.get(i),profile);
-            System.out.println(database.requests.get(i).getFeatures());
+            System.out.println(database.requests.get(i).getTitle());
             panelVariable.setVisible(true);
             panel.add(panelVariable);
             

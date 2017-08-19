@@ -2,7 +2,7 @@ Ini
 EMI
 email
 816816
-{{{{{{java}}}}}}
+{{{{{{{{{{java}}}}}}}}}}
 816816
 90
 end
@@ -10,31 +10,31 @@ test
 ca
 em
 111
-{{{{{{java}}}}}}
+{{{{{{{{{{java}}}}}}}}}}
 111
-0
+90
 end
 maverick rivera
 Mabe
 maverick.rivera@gmail.com
 222222
-{{{{{{python}}}}}}
+{{{{{{{{{{python}}}}}}}}}}
 222222
-500
+1090
 end
 Elijah Kun
 Daisuki
 dai.suki@japan.com
 444
-{{{{{{Japanese,,,,,, java}}}}}}
+{{{{{{{{{{Japanese,,,,,,,,,, java}}}}}}}}}}
 444
-0
+90
 end
 justatest
 justatest
 justatest
 justatest
-{justatest}
+{{{{{justatest}}}}}
 justatest
 0
 end

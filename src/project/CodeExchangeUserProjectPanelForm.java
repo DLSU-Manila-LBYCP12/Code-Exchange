@@ -73,7 +73,6 @@ CodeExchangeUserProfile profile;
         jScrollPane2 = new javax.swing.JScrollPane();
         featureLabel = new javax.swing.JTextArea();
         doThisButton = new javax.swing.JButton();
-        doThisButton1 = new javax.swing.JButton();
 
         label1.setText("label1");
 
@@ -119,13 +118,6 @@ CodeExchangeUserProfile profile;
             }
         });
 
-        doThisButton1.setText("Delete");
-        doThisButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doThisButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,11 +143,8 @@ CodeExchangeUserProfile profile;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(colorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(paymentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(doThisButton1)))
-                        .addGap(21, 21, 21))
+                            .addComponent(paymentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(262, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(projectName)
                         .addGap(81, 81, 81)
@@ -191,18 +180,13 @@ CodeExchangeUserProfile profile;
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(doThisButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel4))
-                            .addComponent(colorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(paymentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel4))
+                    .addComponent(colorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(paymentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -216,16 +200,11 @@ CodeExchangeUserProfile profile;
         form.setVisible(true);
     }//GEN-LAST:event_doThisButtonActionPerformed
 
-    private void doThisButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doThisButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doThisButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Label colorLabel;
     private javax.swing.JTextArea descriptionLabel;
     private javax.swing.JButton doThisButton;
-    private javax.swing.JButton doThisButton1;
     private javax.swing.JTextArea featureLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

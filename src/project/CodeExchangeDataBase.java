@@ -150,7 +150,7 @@ public class CodeExchangeDataBase {
 
     public CodeExchangeUserProfile getProfileUser(String name) {
         CodeExchangeUserProfile temp = null;
-        for (int i = 1; i < users.size(); i++) {
+        for (int i = 1; i < users.size()+1; i++) {
             temp = users.get(i);
             if (name.equals(temp.getName())) {
                 return temp;

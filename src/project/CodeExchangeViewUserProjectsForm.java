@@ -24,11 +24,9 @@ public class CodeExchangeViewUserProjectsForm extends javax.swing.JFrame {
     CodeExchangeUserProfile profile;
     /**
      * Creates new form CodeExchangeViewAllProjectsForm
+     * @param profile
      */
-    public CodeExchangeViewUserProjectsForm() throws IOException {
-        initComponents();
-        init();
-    }
+    
 
     public CodeExchangeViewUserProjectsForm(CodeExchangeUserProfile profile) throws IOException {
         initComponents();
@@ -53,13 +51,16 @@ public class CodeExchangeViewUserProjectsForm extends javax.swing.JFrame {
  
         panel.setVisible(true);
         panel.setSize(500, 500);
+        //stack base 1
             for(int i=1;i<database.requests.size()+1;i++){
-                if(database.requests.get(i).getSubmitter().equals(profile.getName())){
+                String requester = database.requests.get(i).getSubmitter();
+                System.out.println(requester+ "  "+profile.getName());
+                if(requester.equals(profile.getName())){
                     CodeExchangeUserProjectPanelForm panelVariable = new CodeExchangeUserProjectPanelForm(database.requests.get(i),profile);
-                    System.out.println(database.requests.get(i).getFeatures());
+                    
                     panelVariable.setVisible(true);
                     panel.add(panelVariable);
-                    System.out.println("added");
+                    System.out.println("added one form to the scrollpane by " +database.requests.get(i).getSubmitter() );
                 }
             }
 

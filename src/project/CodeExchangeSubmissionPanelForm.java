@@ -236,7 +236,17 @@ public class CodeExchangeSubmissionPanelForm extends javax.swing.JPanel {
             }
             
             JOptionPane.showMessageDialog(null, "Accepted this work!");
-            
+            PrintWriter print = null;
+        String path = System.getProperty("user.dir") + "\\src\\project\\logs\\logs.txt";
+        FileWriter writer;
+        try {
+            writer = new FileWriter(path, false);
+            print = new PrintWriter(writer);
+            print.println(tempProfile.getName()+"|"+submission.getSubmitter());
+            print.close();
+        } catch (IOException ex) {
+            Logger.getLogger(RegistrationUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
                 
             
 }else{
@@ -248,7 +258,7 @@ public class CodeExchangeSubmissionPanelForm extends javax.swing.JPanel {
             
     public void removefromText() throws IOException{
         PrintWriter print = null;
-        String path = System.getProperty("user.dir") + "\\src\\project\\projectlist\\projectlist.txt";
+        String path = System.getProperty("user.dir") + "\\src\\project\\requests\\requests.txt";
         FileWriter writer;
         try {
             writer = new FileWriter(path, false);
