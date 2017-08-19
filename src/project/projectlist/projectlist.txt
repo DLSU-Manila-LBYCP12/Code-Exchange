@@ -1,4 +1,5 @@
 inicca lee
+third test
 elcie3
 1
 end language
@@ -12,6 +13,7 @@ end added features
 end code
 end
 inicca lee
+third test
 elcie3
 java	
 end language
@@ -25,6 +27,7 @@ hello
 end code
 end
 inicca lee
+third test
 elcie3
 java	
 end language

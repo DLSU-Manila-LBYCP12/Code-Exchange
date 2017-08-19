@@ -209,7 +209,7 @@ CodeExchangeUserProfile profile;
     private void doThisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doThisButtonActionPerformed
         CodeExchangeViewSubmissionProjectForm form = null;
     try {
-        form = new CodeExchangeViewSubmissionProjectForm(profile);
+        form = new CodeExchangeViewSubmissionProjectForm(profile,request.getTitle());
     } catch (IOException ex) {
         Logger.getLogger(CodeExchangeUserProjectPanelForm.class.getName()).log(Level.SEVERE, null, ex);
     }

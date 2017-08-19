@@ -35,6 +35,7 @@ public class CodeExchangeSubmissionDatabase {
         while (temp != null) {
             CodeExchangeSubmission tempSubmission = new CodeExchangeSubmission();
             tempSubmission.setSubmitter(temp);
+            tempSubmission.setTitle(br.readLine());
             tempSubmission.setRequester(br.readLine());
             String lang = "";
             System.out.println(temp=br.readLine());

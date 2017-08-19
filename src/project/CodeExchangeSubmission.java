@@ -19,6 +19,7 @@ public class CodeExchangeSubmission {
     private String code;
     private String addfeatures;
     private String requester;
+    private String title;
     
     /**
      * @return the submitter
@@ -35,6 +36,13 @@ public class CodeExchangeSubmission {
     }
      public String getRequester() {
         return requester;
+    }
+     
+     public void setTitle(String title) {
+        this.title = title;
+    }
+     public String getTitle() {
+        return title;
     }
 
     /**
