@@ -69,7 +69,7 @@
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="nameField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="companyNameField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="aliasNameField" alignment="0" max="32767" attributes="0"/>
                               <Component id="emailField" alignment="0" max="32767" attributes="0"/>
                               <Component id="numberField" alignment="0" max="32767" attributes="0"/>
                               <Component id="languagesField" alignment="0" max="32767" attributes="0"/>
@@ -110,7 +110,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="companyNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="aliasNameField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -182,9 +182,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="nameField">
         </Component>
-        <Component class="javax.swing.JTextField" name="companyNameField">
+        <Component class="javax.swing.JTextField" name="aliasNameField">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="companyNameFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aliasNameFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="emailField">

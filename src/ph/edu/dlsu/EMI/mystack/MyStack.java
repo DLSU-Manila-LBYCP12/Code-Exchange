@@ -14,11 +14,11 @@ import ph.edu.dlsu.EMI.myinterface.Stack;
 public class MyStack<Item>  implements Stack<Item>{
     private static final int MAX_SIZE = 100;
     private Node<Item> first;     // top of stack
-    private int n;                // size of the stack
+    private int numItems;                // size of the stack
 
     @Override
     public int size() {
-        return n;}
+        return numItems;}
 
     // helper linked list class
     private static class Node<Item> {
@@ -34,7 +34,7 @@ public class MyStack<Item>  implements Stack<Item>{
      */
     public MyStack() {
         first = null;
-        n = 0;
+        numItems = 0;
     }
 
     /**
@@ -46,7 +46,7 @@ public class MyStack<Item>  implements Stack<Item>{
         return first == null;
     }
     public boolean full() {
-        return n>=100;
+        return numItems>=100;
     }
 
     /**
@@ -66,7 +66,7 @@ public class MyStack<Item>  implements Stack<Item>{
         first = new Node<Item>();
         first.item = item;
         first.next = oldfirst;
-        n++;
+        numItems++;
     }
 
     /**
@@ -79,7 +79,7 @@ public class MyStack<Item>  implements Stack<Item>{
         if (isEmpty()) throw new NoSuchElementException("Stack underflow");
         Item item = first.item;        // save item to return
         first = first.next;            // delete first node
-        n--;
+        numItems--;
         return item;                   // return the saved item
     }
 
@@ -129,14 +129,36 @@ public class MyStack<Item>  implements Stack<Item>{
         System.out.println(stack);
         
     }
+    public void remove(int index){
+        //base1
+        if(index == 1 && size()>1){
+            first=first.next;
+            
+        }
+        if(size()==1){
+            first = null;
+           
+        }
+        Node previous=first;
+        for(int i =1;i< index-1;i++){
+            previous=previous.next;
+        }if(index!=size()){
+        Node next = previous.next;
+        next = next.next;
+        previous.next=next;}else{
+            previous.next = null;
+        }
+        numItems--;
+    }
     public Item get(int index){
         Item temp = null;
-        if(index<=n){
+        if(index<=numItems){
         Node tempNode=first;
         for(int i =0;i< index-1;i++){
             tempNode=tempNode.next;
         }
-         temp =  (Item) tempNode.getItem();}else{
+         temp =  (Item) tempNode.getItem();
+        }else{
             System.out.println("Exception stack underflow! ");
         }
         

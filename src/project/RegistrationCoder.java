@@ -62,7 +62,7 @@ public class RegistrationCoder extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         nameField = new javax.swing.JTextField();
-        companyNameField = new javax.swing.JTextField();
+        aliasNameField = new javax.swing.JTextField();
         emailField = new javax.swing.JTextField();
         numberField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
@@ -86,9 +86,9 @@ public class RegistrationCoder extends javax.swing.JPanel {
 
         jLabel7.setText("Confirm Password:");
 
-        companyNameField.addActionListener(new java.awt.event.ActionListener() {
+        aliasNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                companyNameFieldActionPerformed(evt);
+                aliasNameFieldActionPerformed(evt);
             }
         });
 
@@ -126,7 +126,7 @@ public class RegistrationCoder extends javax.swing.JPanel {
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nameField)
-                            .addComponent(companyNameField)
+                            .addComponent(aliasNameField)
                             .addComponent(emailField)
                             .addComponent(numberField)
                             .addComponent(languagesField)))
@@ -157,7 +157,7 @@ public class RegistrationCoder extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(companyNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(aliasNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,7 +231,7 @@ public class RegistrationCoder extends javax.swing.JPanel {
             int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to register using the information you provided?", "Confirm", JOptionPane.YES_NO_OPTION);
             if (confirm == 0) {
                 System.out.println("Profile submitted!");
-                 summary = nameField.getText() +nl + companyNameField.getText() +nl  + emailField.getText() +nl  + numberField.getText() +nl  + languagesField.getText() +nl  + password +nl+"0"+nl+"end";
+                 summary = nameField.getText() +nl + aliasNameField.getText() +nl  + emailField.getText() +nl  + numberField.getText() +nl  + languagesField.getText() +nl  + password +nl+"0"+nl+"end";
                  String path = System.getProperty("user.dir") + "\\src\\project\\coders\\coders.txt";
                  FileWriter writer;
                 try {
@@ -271,15 +271,15 @@ public class RegistrationCoder extends javax.swing.JPanel {
         dialog.dispose();
     }//GEN-LAST:event_cancelActionPerformed
 
-    private void companyNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyNameFieldActionPerformed
+    private void aliasNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aliasNameFieldActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_companyNameFieldActionPerformed
+    }//GEN-LAST:event_aliasNameFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField aliasNameField;
     private javax.swing.JButton cancel;
-    private javax.swing.JTextField companyNameField;
     private javax.swing.JPasswordField confirmPassField;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel jLabel1;

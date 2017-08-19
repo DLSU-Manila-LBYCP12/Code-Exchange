@@ -5,32 +5,54 @@
  */
 package project;
 
+import java.awt.Color;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import ph.edu.dlsu.EMI.myqueue.MyQueue;
 
 /**
  *
  * @author inicca
  */
 public class CodeExchangeSubmissionPanelForm extends javax.swing.JPanel {
-CodeExchangeSubmission submission;
-CodeExchangeCoderProfile profile;
-String requester;
+    MyQueue temp = new MyQueue();
+    CodeExchangeDataBase databaseProfiles;
+    CodeExchangeRequestsDatabase databaseRequests;
+    CodeExchangeSubmissionDatabase databaseSubmissions ;
+    CodeExchangeSubmission submission;
+    CodeExchangeSubmission tempSubmission;
+    CodeExchangeCoderProfile profile;
+    CodeExchangeUserProfile  userprofile;
+    String requester;
+    String n = System.lineSeparator();
     /**
      * Creates new form CodeExchangeProjectPanelForm
      * @param request
      */
-    public CodeExchangeSubmissionPanelForm(CodeExchangeSubmission submission) {
+    public CodeExchangeSubmissionPanelForm(CodeExchangeSubmission submission) throws IOException {
         initComponents();
         this.submission = submission;
         setLabels(submission);
+        databaseSubmissions = new CodeExchangeSubmissionDatabase();
+         databaseRequests = new CodeExchangeRequestsDatabase();
+         databaseProfiles = new CodeExchangeDataBase();
+         userprofile=databaseProfiles.getProfileUser(submission.getRequester());
     }
 
-    CodeExchangeSubmissionPanelForm(CodeExchangeRequest request, CodeExchangeCoderProfile profile) {
+    CodeExchangeSubmissionPanelForm(CodeExchangeRequest request, CodeExchangeCoderProfile profile) throws IOException {
         initComponents();
         this.requester=request.getSubmitter();
         this.profile = profile;
         this.submission = submission;
         setLabels(submission);
+        databaseSubmissions = new CodeExchangeSubmissionDatabase();
+        databaseRequests = new CodeExchangeRequestsDatabase();
+        databaseProfiles = new CodeExchangeDataBase();
     }
 
   
@@ -73,6 +95,7 @@ String requester;
         jScrollPane4 = new javax.swing.JScrollPane();
         addfeatureslabel = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
+        acceptButton = new javax.swing.JButton();
 
         label1.setText("label1");
 
@@ -95,6 +118,7 @@ String requester;
 
         submitterLabel.setText("jLabel7");
 
+        featuresLabel.setEditable(false);
         featuresLabel.setColumns(20);
         featuresLabel.setRows(5);
         jScrollPane1.setViewportView(featuresLabel);
@@ -116,6 +140,14 @@ String requester;
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Additional Features:");
+
+        acceptButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        acceptButton.setText("Accept this");
+        acceptButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -141,27 +173,33 @@ String requester;
                                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
                                 .addGap(63, 63, 63))))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(83, 83, 83)
-                                .addComponent(submitterLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5))
-                                .addGap(71, 71, 71)
-                                .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))
+                        .addGap(71, 71, 71)
+                        .addComponent(languageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(83, 83, 83)
+                        .addComponent(submitterLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(acceptButton)
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitterLabel)
-                    .addComponent(jLabel6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(submitterLabel)
+                            .addComponent(jLabel6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(acceptButton)))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,8 +224,70 @@ String requester;
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void acceptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptButtonActionPerformed
+        int choice = JOptionPane.showConfirmDialog(null, "Are you sure?","Confirm",JOptionPane.YES_NO_OPTION);
+        if(choice == 0){
+            try {
+                // TODO add your handling code here:
+                removefromText();
+            } catch (IOException ex) {
+                Logger.getLogger(CodeExchangeSubmissionPanelForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println(submission.getTitle());
+            try {
+                databaseRequests.removeByTitle(submission.getTitle());
+                System.out.println("Removed in the database succesfully");
+            } catch (IOException ex) {
+                Logger.getLogger(CodeExchangeSubmissionPanelForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            JOptionPane.showMessageDialog(null, "Accepted this work!");
+            CodeExchangeCoderProfile tempProfile = databaseProfiles.getProfileCoder(submission.getSubmitter());
+            tempProfile.setEarnings(tempProfile.getEarnings()+ databaseRequests.findByTitle(submission.getTitle()).getPayment());
+            try {
+                databaseProfiles.saveDatabase();
+            } catch (IOException ex) {
+                Logger.getLogger(CodeExchangeSubmissionPanelForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+}else{
+            System.out.println("cancelled by the user ");
+        }
+        
+        
+    }//GEN-LAST:event_acceptButtonActionPerformed
+            
+    public void removefromText() throws IOException{
+        PrintWriter print = null;
+        String path = System.getProperty("user.dir") + "\\src\\project\\projectlist\\projectlist.txt";
+        FileWriter writer;
+        try {
+            writer = new FileWriter(path, false);
+            print = new PrintWriter(writer);
+            print.close();
+        } catch (IOException ex) {
+            Logger.getLogger(RegistrationUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(int i=databaseSubmissions.submission.size()-1;i>0;i--){
+            tempSubmission=databaseSubmissions.submission.deQueue();
+            System.out.println(userprofile.getName()+tempSubmission.getRequester());
+            if(!tempSubmission.getRequester().equals(userprofile.getName())&&!tempSubmission.getTitle().equals(submission.getTitle())){
+            writer = new FileWriter(path, true);
+            print = new PrintWriter(writer);
+            print.println(tempSubmission.getSubmitter()+n+tempSubmission.getTitle()+n+tempSubmission.getRequester()+n+tempSubmission.getLanguage()+n+"end language"+ n +tempSubmission.getFeatures()+n+"end features" + n +tempSubmission.getScreenshot()+n+"end shots" + n +tempSubmission.getAddFeatures()+n+"end added features"+ n +tempSubmission.getCode()+n+"end code"+ n + "end");
+            temp.enQueue(tempSubmission);
+            }
+            while(!temp.isEmpty()){
+                databaseSubmissions.submission.enQueue((CodeExchangeSubmission) temp.deQueue());
+            }
+            databaseRequests.removeByTitle(submission.getTitle());
+            
+            
+        }
+        print.close();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton acceptButton;
     private javax.swing.JTextArea addfeatureslabel;
     private javax.swing.JTextArea codeLabel;
     private javax.swing.JTextArea featuresLabel;

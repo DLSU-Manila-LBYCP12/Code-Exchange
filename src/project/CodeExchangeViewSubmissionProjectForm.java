@@ -55,7 +55,7 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
  
         panel.setVisible(true);
         panel.setSize(500, 500);
-            for(int i=1;i<database.submission.size()+2;i++){
+            for(int i=1;i<database.submission.size()+1;i++){
                 CodeExchangeSubmission temp=database.submission.deQueue();
                 System.out.println(temp.getTitle());
                 System.out.println(title);
@@ -84,7 +84,7 @@ public class CodeExchangeViewSubmissionProjectForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         containerScrPane = new javax.swing.JScrollPane();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/9c8c6fd5-3565-45cf-8805-9bad492e0084.png"))); // NOI18N
 

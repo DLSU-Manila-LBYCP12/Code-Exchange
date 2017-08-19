@@ -1,40 +1,32 @@
-maverick
-elcie3
-maverick.rivera3@gmail.com
-09277256977
-java c javascript
-maverick
+Ini
+EMI
+email
+816816
+{{{{{java}}}}}
+816816
 0
 end
-Elijah Minguez
-Lyle
-elijah_minguez@gmail.com
-09052701561
-Java
-123456
+test
+ca
+em
+111
+{{{{{java}}}}}
+111
 0
 end
-inicca lee
-ini106
-inicca_lee@dlsu.edu.ph
-123123123
-java c
-tiger106
-0
+maverick rivera
+Mabe
+maverick.rivera@gmail.com
+222222
+{{{{{python}}}}}
+222222
+500
 end
-Mave
-mabebe
-maverick.rivera3@gmail.com
-09277256977
-C java js
-maverick
-0
-end
-test3
-test3
-test3
-test3
-test3
-test3
+Elijah Kun
+Daisuki
+dai.suki@japan.com
+444
+{{{{{Japanese,,,,, java}}}}}
+444
 0
 end

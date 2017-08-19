@@ -38,7 +38,7 @@ public class CodeExchangeSubmissionDatabase {
             tempSubmission.setTitle(br.readLine());
             tempSubmission.setRequester(br.readLine());
             String lang = "";
-            System.out.println(temp=br.readLine());
+            temp=br.readLine();
             while(!temp.equals("end language")) {
                 lang += temp + System.lineSeparator();
                 temp = br.readLine();
@@ -89,9 +89,32 @@ public class CodeExchangeSubmissionDatabase {
         }
 
     }
-    
+    public CodeExchangeSubmission findByTitle(String title){
+        CodeExchangeSubmission tempSubmission = null;
+        for(int i =0; i<submission.size();i++){
+            if(submission.get(i).getTitle().equals(title)){
+                tempSubmission = submission.get(i);
+               return tempSubmission;
+            }
+        }
+        return tempSubmission;
+    }
+    public void remove(CodeExchangeSubmission submission){
+        findByTitle(submission.getTitle());
+    }
+    public void removeByTitle(String title){
+        
+        for(int i =0; i<submission.size();i++){
+            if(submission.get(i).getTitle().equals(title)){
+                submission.remove(i);
+            }
+        }
+    }
     public static void main(String[] args) throws IOException {
         CodeExchangeSubmissionDatabase database = new CodeExchangeSubmissionDatabase();
         database.printAllSubmissions();
+    }
+    public void saveDataBase(){
+        
     }
 }

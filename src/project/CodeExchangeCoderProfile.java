@@ -122,5 +122,12 @@ public class CodeExchangeCoderProfile {
     public void setEarnings(int earnings) {
         this.earnings = earnings;
     }
-
+    @Override
+    public String toString(){
+        String temp ="";
+        String nl = System.lineSeparator();
+        temp = getName() +nl + getAlias()+nl  + getEmail() +nl  + getPassword() +nl  + getLanguages() +nl  + getPassword() +nl+getEarnings()+nl+"end";
+                         
+        return temp;
+    }
 }

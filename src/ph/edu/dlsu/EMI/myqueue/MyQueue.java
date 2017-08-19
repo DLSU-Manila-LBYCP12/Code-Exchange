@@ -16,7 +16,7 @@ public class MyQueue<Item> implements Queue<Item>{
     //create by Maverick C. Rivera for the Subject LBYCP12
     //for the purpose of the program only, there is no return for dequeue 
     //because dequed data is not needed anywhere else
-    public static final int MAX_SIZE =10;
+    public static final int MAX_SIZE =50;
     private int numItems=0;
     private Item[] data ;
     private int qRear;
@@ -55,6 +55,24 @@ public class MyQueue<Item> implements Queue<Item>{
     public int size(){
         return numItems;
     }
-
-    
+    public void remove(Item item){
+        for(int i=0;i<size();i++){
+        if(item.equals(data[i])){
+            remove(i);
+            return;
+        }
+        }
+            
+            
+    }
+    public Item get(int index){
+        return data[index];
+    }
+    public void remove(int index){
+        for(int i =index;i< size();i++){
+            data[i]=data[i+1];
+            
+        }
+        numItems --; 
+    }
 }

@@ -9,7 +9,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import ph.edu.dlsu.EMI.myarraylist.MyList;
@@ -21,9 +23,9 @@ import ph.edu.dlsu.EMI.mylinkedlist.MyLinkedList;
  */
 public class CodeExchangeDataBase {
 
-    MyList<CodeExchangeUserProfile> users = new MyList<>();
-    MyList<CodeExchangeCoderProfile> coders = new MyList<>();
-    MyList<String> names = new MyList<>();
+    public MyList<CodeExchangeUserProfile> users = new MyList<>();
+    public MyList<CodeExchangeCoderProfile> coders = new MyList<>();
+    public MyList<String> names = new MyList<>();
     ArrayList<String> namesArrayList = new ArrayList<>();
     int codersSize = 0, usersSize = 0;
 
@@ -146,7 +148,7 @@ public class CodeExchangeDataBase {
         }
     }
 
-    public CodeExchangeUserProfile getProfile(String name) {
+    public CodeExchangeUserProfile getProfileUser(String name) {
         CodeExchangeUserProfile temp = null;
         for (int i = 1; i < users.size(); i++) {
             temp = users.get(i);
@@ -166,5 +168,20 @@ public class CodeExchangeDataBase {
             }
         }
         return temp;
+    }
+
+    public void saveDatabase() throws IOException {
+        String path = System.getProperty("user.dir") + "\\src\\project\\coders\\coders.txt";
+        File f = new File(path);
+
+        FileWriter writer;
+        writer = new FileWriter(path, false);
+        PrintWriter print = new PrintWriter(writer);
+
+        for (int i = 1; i < coders.size() + 1; i++) {
+            print.println(coders.get(i).toString());
+
+        }
+        print.close();
     }
 }
