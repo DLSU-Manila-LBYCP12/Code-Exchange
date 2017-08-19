@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 test|elcie3
 Ini|elcie3
 justatest|inicca lee
@@ -11,3 +12,15 @@ maverick rivera|inicca lee
 maverick rivera|inicca lee
 maverick rivera|inicca lee
 maverick rivera|inicca lee
+=======
+test|test4
+test|test4
+test|test4
+test|test4
+test|test4
+test|elcie3
+Ini|elcie3
+justatest|elcie3
+Elijah Kun|elcie3
+Elijah Kun|test4
+>>>>>>> origin/master
