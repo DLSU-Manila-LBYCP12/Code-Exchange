@@ -76,6 +76,16 @@ public class CodeExchangeRequestsDatabase {
         }
 
     }
+    
+    public void printAllUserRequests(String user) {
+        System.out.println("Request user titles");
+        for (int i = 1; i < requests.size() + 1; i++) {
+            if(requests.get(i).getSubmitter().equals(user)){
+                System.out.println(requests.get(i).getTitle());
+            }
+        }
+
+    }
 
     public static void main(String[] args) throws IOException {
         CodeExchangeRequestsDatabase database = new CodeExchangeRequestsDatabase();

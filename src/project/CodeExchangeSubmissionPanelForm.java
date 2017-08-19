@@ -11,20 +11,20 @@ import javax.swing.JFrame;
  *
  * @author Student
  */
-public class CodeExchangeProjectPanelForm extends javax.swing.JPanel {
+public class CodeExchangeSubmissionPanelForm extends javax.swing.JPanel {
 CodeExchangeRequest request;
 CodeExchangeCoderProfile profile;
     /**
      * Creates new form CodeExchangeProjectPanelForm
      * @param request
      */
-    public CodeExchangeProjectPanelForm(CodeExchangeRequest request) {
+    public CodeExchangeSubmissionPanelForm(CodeExchangeRequest request) {
         initComponents();
         this.request = request;
         setLabels(request);
     }
 
-    CodeExchangeProjectPanelForm(CodeExchangeRequest request, CodeExchangeCoderProfile profile) {
+    CodeExchangeSubmissionPanelForm(CodeExchangeRequest request, CodeExchangeCoderProfile profile) {
         initComponents();
         this.profile = profile;
         this.request = request;

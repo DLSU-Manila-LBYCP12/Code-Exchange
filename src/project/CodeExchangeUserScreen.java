@@ -150,7 +150,7 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(requestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(119, 119, 119)
+                .addGap(77, 77, 77)
                 .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LogoffBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,6 +253,13 @@ public class CodeExchangeUserScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_requestBtnActionPerformed
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
+        CodeExchangeViewUserProjectsForm projectsForm = null ;
+        try {
+            projectsForm = new CodeExchangeViewUserProjectsForm(profile);
+        } catch (IOException ex) {
+            Logger.getLogger(CodeExchangeUserScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        projectsForm.setVisible(true);
         System.out.println("Displaying: Existing Requests");
     }//GEN-LAST:event_viewBtnActionPerformed
 
