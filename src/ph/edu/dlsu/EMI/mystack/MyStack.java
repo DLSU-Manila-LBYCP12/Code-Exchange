@@ -4,164 +4,47 @@
  * and open the template in the editor.
  */
 package ph.edu.dlsu.EMI.mystack;
-import java.util.NoSuchElementException;
-import ph.edu.dlsu.EMI.myinterface.Stack;
+import acm.program.*;
+import acm.util.*;
 
-/**
- *
- * @author student
- */
-public class MyStack<Item>  implements Stack<Item>{
-    private static final int MAX_SIZE = 100;
-    private Node<Item> first;     // top of stack
-    private int numItems;                // size of the stack
 
-    @Override
-    public int size() {
-        return numItems;}
+public class MyStack<E>{
 
-    // helper linked list class
-    private static class Node<Item> {
-        private Item item;
-        private Node<Item> next;
-        public Item getItem(){
-            return item;
-        }
+     private final int MAX_LIST =1000000;     
+     private E[] items;                     
+     private int NumItems;                 
+     
+     @SuppressWarnings("unchecked")
+     public MyStack(){
+         createList();
+     }
+     
+     public void createList(){
+           items = (E[])new Object[MAX_LIST]; 
+           NumItems = 0;
+     }
+
+     public void push(E item) {
+         NumItems++; 
+         items[NumItems-1]=item;
+     } 
+
+     public E pop(){
+        E result;
+        result = items[NumItems-1];
+        NumItems--;
+        return result;
+    } 
+
+    public boolean isEmpty(){
+           return NumItems == 0;          
     }
-
-    /**
-     * Initializes an empty stack.
-     */
-    public MyStack() {
-        first = null;
-        numItems = 0;
+    public int size(){
+        return NumItems;
     }
-
-    /**
-     * Returns true if this stack is empty.
-     *
-     * @return true if this stack is empty; false otherwise
-     */
-    public boolean isEmpty() {
-        return first == null;
-    }
-    public boolean full() {
-        return numItems>=100;
-    }
-
-    /**
-     * Returns the number of items in this stack.
-     *
-     * @return the number of items in this stack
-     */
-    
-
-    /**
-     * Adds the item to this stack.
-     *
-     * @param  item the item to add
-     */
-    public void push(Item item) {
-        Node<Item> oldfirst = first;
-        first = new Node<Item>();
-        first.item = item;
-        first.next = oldfirst;
-        numItems++;
-    }
-
-    /**
-     * Removes and returns the item most recently added to this stack.
-     *
-     * @return the item most recently added
-     * @throws NoSuchElementException if this stack is empty
-     */
-    public Item pop() {
-        if (isEmpty()) throw new NoSuchElementException("Stack underflow");
-        Item item = first.item;        // save item to return
-        first = first.next;            // delete first node
-        numItems--;
-        return item;                   // return the saved item
-    }
-
-
-    /**
-     * Returns (but does not remove) the item most recently added to this stack.
-     *
-     * @return the item most recently added to this stack
-     * @throws NoSuchElementException if this stack is empty
-     */
-    public Item top() {
-        if (isEmpty()) throw new NoSuchElementException("Stack underflow");
-        return first.item;
-    }
-
-    /**
-     * Returns a string representation of this stack.
-     *
-     * @param args
-     * @return the sequence of items in this stack in LIFO order, separated by spaces
-     */
-    public String toString(){
-        MyStack<Item> tempStack = new MyStack<>();
-        String temp="{Top: ";
-        while(size()!=1){
-            temp+= top() +", ";
-            tempStack.push(pop());
-        }
-        temp += top() + "}";
-        while(!tempStack.isEmpty()){
-            push(tempStack.pop());
-        }
-        
-        
-        return temp;
-    }
-       
-
-  
-    public static void main(String[] args){
-        MyStack<Integer> stack = new MyStack<>();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
-        stack.push(5);
-        System.out.println(stack);
-        
-    }
-    public void remove(int index){
-        //base1
-        if(index == 1 && size()>1){
-            first=first.next;
-            
-        }
-        if(size()==1){
-            first = null;
-           
-        }
-        Node previous=first;
-        for(int i =1;i< index-1;i++){
-            previous=previous.next;
-        }if(index!=size()){
-        Node next = previous.next;
-        next = next.next;
-        previous.next=next;}else{
-            previous.next = null;
-        }
-        numItems--;
-    }
-    public Item get(int index){
-        Item temp = null;
-        if(index<=numItems){
-        Node tempNode=first;
-        for(int i =0;i< index-1;i++){
-            tempNode=tempNode.next;
-        }
-         temp =  (Item) tempNode.getItem();
-        }else{
-            System.out.println("Exception stack underflow! ");
-        }
-        
-        return temp;
-    }
+    public E top(){
+        E item;
+        item=items[NumItems-1];
+        return item;
+    } 
 }
